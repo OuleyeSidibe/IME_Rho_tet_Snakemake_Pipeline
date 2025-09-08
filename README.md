@@ -57,7 +57,13 @@ IME_Rho_tet_pipeline/
 
 
 ## Contact
+Created and maintained by Ouléye Sidibé
+Questions or Feature requests ? Open an issue or contact ouleyehelena@gmail.com
+
 
 ## Citation
+
+## License
+This project is licensed under the GNU General Pu
 
 ## 
