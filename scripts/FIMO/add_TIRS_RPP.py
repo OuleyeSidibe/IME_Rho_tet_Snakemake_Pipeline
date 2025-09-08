@@ -23,7 +23,7 @@ def config_parameters():
     args=parser.parse_args()
     if len(sys.argv) < 3 :
         sys.exit("Warning : wrong number of argument")
-    return args.inputfile, args.outputdir, args.table
+    return args.inputfile, args.outputfile, args.table
 
 
 inputfile, outputfile, table = config_parameters()
