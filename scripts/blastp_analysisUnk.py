@@ -8,24 +8,20 @@ from Bio import SeqIO
 
 
 
-
 ########################################################################################################################
 # ## Notes
 
 """ Filtrer les resultats blastp afin de définir un nouveau non pour les nouveau cariant Tet non connus de Resfinder """
 
-
 ## Load script :
 
 # python3 /blastp_analysis.py -i <inputdir> -o <outputdir>  -c <tet new ref cluster>
-
-
 
 #########################################################################################################################
 
 
 
-# Analyseurs d'arguments
+# Arguments
 def config_parameters():
     parser=ArgumentParser()
     parser.add_argument("-i", "--input", dest="inputdir", help="input file for blastp result")
@@ -38,7 +34,7 @@ def config_parameters():
     return args.inputdir, args.outputdir, args.cluster_TET, args.workdir
 
 
-# generateur de nom des nouveaux tet
+# new tet generator name
 def generate_unique_TETnumber(start, end, generated_numbers):
     while True:
         num = random.randint(start, end-1)
@@ -56,7 +52,6 @@ read_blast.columns = ["Subject", "Coverage", "Identity"]
 # Put unknow protein ID in list
 query = read_blast.index.unique().tolist()
 nb_query = len(query)
-
 
 
 
