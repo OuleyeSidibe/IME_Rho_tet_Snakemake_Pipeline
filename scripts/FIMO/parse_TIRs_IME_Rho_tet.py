@@ -1,20 +1,20 @@
-#!/usr/bin/python3
-
-##########################################################################################
-#
-# Parse FIMO outputs to extract TIR which match with IME_Rho_tet positions and orientations
-# within assemblies
-# FIMO outputs were computed on Migale.
-#
-# AI-generated script using app.codeconvert.ai on March, 11th 2025
-#
-##########################################################################################
-
-
+## Librairies
 import csv
 import pandas as pd 
 import os
 
+
+#############################################################################################################
+# ## Notes 
+
+"""  Parse FIMO outputs to extract TIR which match with IME_Rho_tet positions and orientations """
+
+# ## Load script  in work directory with appropriate input files
+
+#############################################################################################################
+
+
+# Functions
 def process_files():
     # Open the CSV file "RefseqFINAL3.csv)"
     try:
@@ -22,7 +22,6 @@ def process_files():
             csv_reader = csv.reader(csvfile)
             
             
-          
             # print("ID strand TIRamont_s TIRamont_e TIRamont_seq TIRaval_s TIRaval_e TIRaval_seq mge_size TIRamont_s2 TIRamont_e2 TIRamont_seq2")
             for row in csv_reader:
                 # Check if row has enough columns (at least 23 columns for index 22)
