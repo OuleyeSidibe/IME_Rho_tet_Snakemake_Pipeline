@@ -6,19 +6,19 @@ import sys
 
 
 ################################################################################################################################################################
-# ## Infos 
+# ## Notes
 
 """ Create query file of unreferenced tet proteins clusters """
-# ## Lancement script :
+
+# ## Load script :
 
 # python3 ~/create_query.py -i "inputfile" -o "outputfile"
-
 
 #################################################################################################################################################################
 
 
 
-# Analyseur d'arguments
+# Arguments
 def config_parameters():
     parser = ArgumentParser()
     parser.add_argument("-i", "--input", dest="inputdir", help="input directory with clusters of proteines")
@@ -27,7 +27,6 @@ def config_parameters():
     if len(sys.argv) < 2:
         sys.exit("Warning : wrong number of arguments")
     return options.inputdir, options.outputdir
-
 
 
 inputdir, outputdir = config_parameters()
