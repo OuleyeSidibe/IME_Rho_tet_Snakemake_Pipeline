@@ -5,23 +5,17 @@ import sys
 
 
 
-
 #######################################################################################
-# ## Infos 
+# ## Notes
 
 """ create sankey input file for clustering by prot """
-# ## Lancement script :
+# ## Load script :
 
 # python3 ~/sankey_input.py -i "inputdir" -o "outputdire" -g  <"MGE" "TetMGE" "Tet">
 
-
 #######################################################################################
 
-
-
-
-
-# Analyseur d'arguments
+# Arguments
 def config_parameters():
     parser = ArgumentParser()
     parser.add_argument("-i", "--input", dest="inputdir", help="Refseq table final")
@@ -34,8 +28,6 @@ def config_parameters():
     return options.inputdir, options.outputdir, options.groupes
 
 
-
-
 # main
 def main() :
     
@@ -46,24 +38,23 @@ def main() :
     r_input = r_input[(r_input["groupe"] != "Tet__MGE") & (r_input["groupe"] != "Troncated")]
 
 
-    """ 1er groupemment de la table suivant le genre  """
+    """ 1st groupbing by genus  """
         
-    ## remplacer les valeurs vides (Nan) par "Na"
+    ## replace  (Nan) by "Na"
     df= r_input.fillna("Na")
     grouped_gg = df.groupby(by=["TET_ref","REL_clstr", "REC_clstr", "groupe", "genus"]).size().reset_index(name="nb_genome")
-    ## reremplacer les valeurs "Na" par leurs valeurs d'origine
+    ## replace "Na" by originate values
     grouped_gg = grouped_gg.replace("Na", pd.NA)
 
 
-
-    """ 2ieme groupemment de la table des genres suivant les 3 proteines en faisant la somme des nombres d'occurence pour chaque lien de cluster """
+    """ 2nd grouping of the gender table according to the three proteins, summing the number of occurrences for each cluster link. """
     
     grouped_gg_ = grouped_gg.fillna("Na")
     grouped_ggref = grouped_gg_.groupby(by=["TET_ref","REL_clstr", "REC_clstr", "groupe"]).agg({"nb_genome" : 'sum'}).reset_index()
     grouped_ggref = grouped_ggref .replace("Na", pd.NA)
     grouped_ggref.to_csv(f"{outputdir}/grouped_tableRef.csv")
 
-    # Ouvrir le fichier de sortie pour ecriture
+    # Open output file for writting
     with open(f"{outputdir}/sankey_input.txt", "a") as out_file :
         
         
@@ -71,7 +62,7 @@ def main() :
         for grp in groupes:
             out_file.write(f"---------------------{grp}---------------------\n")    
             
-            # stocker chaque ligne de la table dans un tuple    
+            # store each row of the table in a tuple       
             tup_clstr=[]
             grouped_ggref_ = grouped_ggref[grouped_ggref["groupe"] == grp]
             for index, row in grouped_ggref_.iterrows() :
@@ -97,7 +88,7 @@ def main() :
             
 
 
-        #filtrer les valeurs na
+        # Filter na values
         for key_na, value in dicts.items():
             key = tuple(item for item in key_na if pd.notna(item))
 
@@ -110,16 +101,6 @@ def main() :
                     out_file.write(f"{key[i]} [{key[-1]}] {key[y]}\n")
                     nb_link +=1 
                     
-            # # create link between groupe ang genus
-            # link = len(value) 
-            # nb_link = 0
-            # for i in range(0, link):
-            #     if nb_link !=  link : 
-            #         for val in value[i] :
-            #             if val != value[i][-1] :
-            #                 out_file.write(f"{key[y]} [{value[i][-1]}] {val}\n")
-            #                 nb_link += 1 
-            
 
 print("Process Done !!")
 
