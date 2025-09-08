@@ -15,20 +15,18 @@ from Bio.SeqRecord import SeqRecord
 
 
 #############################################################################################################################################################################
-# ## Infos 
+# ## Notes 
 
-""" Recupére les fichiers Genbank des genomes portant les gènes tet PPR et/ou EGM (relaxaseèrecombinase) et crée la table de résumé """
+""" Summary table of IME_Rho_tet metadata from Refseq/genbank"""
 
-# ## Lancement script :
+# ## Load script :
 
 # python3 ~/refseq_table.py -i "inputdir" -gb "genbank_dir" -t "Tet(W)"  -m "protein=relaxase" "protein=recombinase" -o "refseq_directory" -db <db_troncSearch.txt>
-
-
 
 ############################################################################################################################################################################
 
 
-# Analyseurs d'arguments
+# Arguments
 def config_parameters():
     parser = ArgumentParser()
     parser.add_argument("-i", "--input", dest="inputdir", help="input directory with groupes and gb files")
@@ -153,8 +151,6 @@ def get_protein_position(prot_id, lines, start_index) :
 
 
 
-
-
 # Get the rignt coordianates according strand
 def relax_start(strand, RELstart, RELstop, RECstart, RECstop):
     if strand == "+" :
@@ -165,7 +161,6 @@ def relax_start(strand, RELstart, RELstop, RECstart, RECstop):
         EGM_coord = str(RECstart) + '-' + str(RELstop)
 
     return startREL, EGM_coord
-
 
 
 def split_gb(line):
@@ -345,7 +340,7 @@ def main():
                             # print(index, row)
                             position = row['cds_position']
                             
-                            # si l'index est une relaxase extraire ces informations(ID, coordonnées) de genbank 
+                            # Extract relaxase metadata
                             if index == MGE_proteins[0] :
                                 relaxase_id = row["protein_id"]
                                 relax_identity = row["Pident"]
@@ -355,7 +350,7 @@ def main():
                                 relax_coord = str(RELstart) + '..' + str(RELstop)
 
             
-                            #si l'index est une recombinase extraire ces informations(ID, coordonnées) de genbank 
+                            # Extract recombinase metadata
                             if index == MGE_proteins[1] :
                                 recombinase_id = row["protein_id"]                      
                                 recom_identity = row["Pident"]
@@ -364,7 +359,7 @@ def main():
                                 recom_coord = str(RECstart) + '..' + str(RECstop)
 
 
-                            # si l'index est une tetracycline extraire ces informations(ID, coordonnées) de genbank 
+                            # Extract tetracycline metadata
                             if index == tet_protein and row["genome_acc"] == genome :
                                 tet_id = row["protein_id"]
                                 tet = index
@@ -417,29 +412,6 @@ def main():
                                 EGM_coord = str(TETstart) + '..' + str(TETstop)
                                 
                                 
-                                
-                                
-                        # elif ((groupe_name == "g_Tet__MGE") and RELstart != 0 and TETstart != 0):
-                        #     startREL, EGM_coord = relax_start(strand, RELstart, RELstop, RECstart, RECstop)
-                        #     genome_Tet__MGE = genome
-                             
-                        
-                        # elif ((groupe_name == "g_Tet__MGE") and RELstart != 0 and TETstart == 0):
-                        #     startREL, EGM_coord = relax_start(strand, RELstart, RELstop, RECstart, RECstop)
-
-                        #     tet_id = "-"
-                        #     genome_Tet__MGE = genome
-                            
-
-                        # elif groupe_name == "g_Tet__MGE" and RELstart == 0 :
-                        #     relax_identity = 0
-                        #     recom_identity = 0
-
-                        #     EGM_coord = str(TETstart) + '..' + str(TETstop)
-                        #     # dict_Tet__MGE[startREL] = [genome, groupe_name, specie_name, refseq_acc, genome_Tet__MGE]
-                        #     dict_Tet__MGE[genome_Tet__MGE] = [[specie_name, refseq_acc, startREL, groupes[1]]]
-                            
-
 
                         # Check a possible troncated tet PPR gene in MGE group
                         elif groupe_name == "g_MGE" :
@@ -477,7 +449,7 @@ def main():
     # print("****dict de base***")
     # print(dict_Tet__MGE)
 
-    # ####################################################### Reorganiser les groupes dans la table suivant la distance max #############################################################
+    # ####################################################### Reorganize group in the summary table #############################################################
     grp2="MGE"
     grp3="Tet__MGE"
 
@@ -515,10 +487,9 @@ def main():
 #    print("****list key***")
 #    print(list_key_TMGE)
 
-    # ######################################################## Reorganiser les groupes dans les répertoires à partir des dictionnaires #############################################################
+    # ######################################################## Reorganize group in repository #############################################################
 
     #Create new dictionnary of moved species or genomes
-    
     def transfert_dict(dict_aceptor, dict_donor, list_key_donor):
         dict_aceptor={}
         for key in list_key_donor :
@@ -644,10 +615,10 @@ def main():
         
 
 
-    # ######################################################## Recherche de gènes tet tronqué dans le groupe MGE par tblastn et les isoler  #############################################################
+    # ######################################################## Search troncated tetracycline #############################################################
 
 
-    # Extracte contig or genome fasta sequence from genomic_fna file in migale db 
+    # Extract contig or genome fasta sequence from genomic_fna file in migale db 
     tmp_file=os.path.join(inputdir + "/tmp")
     concat_dict = {**dict_Tet__MGE, **to_T_MGE_dict}
     nb_key=0
@@ -680,7 +651,7 @@ def main():
                             break
 
 
-            # extracte maximal distance sequence
+            # extract maximal distance sequence
             stop_fa = int(value[2])
             start_fa = stop_fa - max_distance
             if start_fa < 1 :
