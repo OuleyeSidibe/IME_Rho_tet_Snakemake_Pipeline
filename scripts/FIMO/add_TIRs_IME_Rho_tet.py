@@ -3,16 +3,16 @@ import pandas as pd
 from argparse import ArgumentParser
 
 
-###################################################################################
+#######################################################################################
 # ## Notes
 
-""" Add TIRS of RPP data in summary table """
+""" Add TIRS of IME_Rho_tet data in summary table """
 
 ## Load script :
 
-# python3 /add_TIRS_RPP.py -i <inputfile> -o <output table> -t <summary table>
+# python3 /add_TIRS_IME_Rho_tet.py -i <inputfile> -o <output table> -t <summary table>
 
-##################################################################################
+#######################################################################################
 
 # Arguments
 def config_parameters():
@@ -23,7 +23,7 @@ def config_parameters():
     args=parser.parse_args()
     if len(sys.argv) < 3 :
         sys.exit("Warning : wrong number of argument")
-    return args.inputfile, args.outputdir, args.table
+    return args.inputfile, args.outputfile, args.table
 
 
 inputfile, outputfile, table = config_parameters()
