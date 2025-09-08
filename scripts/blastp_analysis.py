@@ -10,18 +10,18 @@ import fnmatch
 
 
 ###########################################################################################################################################################################
-# ## Infos
+# ## Notes
 
-""" Traitement des sorties blast afin d'itentifier les GRAs tet proches de la relaxase et de la recombinase dans les genomes bactériens bacillota et Actinomycetota  """
+""" Processing of blast outputs to identify ARGs close to relaxase and recombinase in Bacillota and Actinomycetota bacterial genomes  """
 
-# ## Lancement du script :
+# ## Load script :
 
 # python3 -i <inputdir with blast result> -o <outputdir> -pi <min of identity percentage> -pc <min of coverage percentage> -t <list of "tet protein" launch in blastp>
 # -int <cds interval> -a <stdout.txt>
 
 ###########################################################################################################################################################################
 
-# Analyseur d'arguments
+# Arguments
 def config_parameters():
     parser = ArgumentParser()
     parser.add_argument("-i", "--input", dest="inputdir", help="input directory with blast data")
