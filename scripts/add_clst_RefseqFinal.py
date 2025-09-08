@@ -8,10 +8,10 @@ import sys
 
 
 ################################################################################################################################################
-# ## Infos 
+# ## Notes 
 
 """ Add cluster results in RefseqFinal table"""
-# ## Lancement script :
+# ## Load script :
 
 # python3 ~/add_clstr_RefseqFinal.py -i "inputdir" -o "outputdire" -t "refseq_table for step blastp_groupe_2" -g <"MGE" "TetMGE" "Tet">
 
@@ -20,7 +20,7 @@ import sys
 
 
 
-# Analyseur d'arguments
+# Arguments
 def config_parameters():
     parser = ArgumentParser()
     parser.add_argument("-i", "--input", dest="inputdir", help="input directory with clusters of proteines")
@@ -36,7 +36,7 @@ def config_parameters():
 
 
 
-# definir les proteines correspondantes suivant les groupes
+# Corresponding proteins according groups
 def prot_by_grp(grp):
     
     proteins=["relaxase_id", "recombinase_id", "tet_id" ]
@@ -52,10 +52,7 @@ def prot_by_grp(grp):
 
 
 
-
-
-
-# Recupérer le numero de cluster des protéines correspondants
+# proteins cluster number
 def get_clstr(proteins, grp, table, clstr_path):
 
     dict_clstr={}
@@ -147,7 +144,7 @@ def main():
 
         dictClstr= get_clstr(proteins, grp, read_table, inputdir) 
         
-        #remplir la table refseq des données de clustering
+        # Updating summary table with clustering data
         for key, value in dictClstr.items() :
             for val in dictClstr[key] :
                 col_name = key[:3].upper()
