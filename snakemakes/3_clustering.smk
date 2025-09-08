@@ -44,10 +44,10 @@ def output_files(inputdir, threshold, prot_name):
 ######################################################################---RULES---######################################################################
 rule all:
     input:
-        # output_files(config['outputdir'], config['threshold'], config['prot_name']),
-        # f"{config['workdir']}/clstr_report_3.txt",
-        # f"{config['outputdir']}/name_unknowProt.txt",
-        # f"{config['workdir']}/RefseqFINAL2.csv",
+        output_files(config['outputdir'], config['threshold'], config['prot_name']),
+        f"{config['workdir']}/clstr_report_3.txt",
+        f"{config['outputdir']}/name_unknowProt.txt",
+        f"{config['workdir']}/RefseqFINAL2.csv",
         f"{config['workdir']}/RefseqFINAL3.csv"
 
 
@@ -76,7 +76,7 @@ rule clustering:
            """
 
 
-## Rule2 : Analyse et modifie clusters
+## Rule2 : Processin and modify clusters
 
 rule analyse_cluster:
     input:
@@ -98,7 +98,6 @@ rule analyse_cluster:
            """
 
 
-
 #rule3 : create query file of not referenced tet
 
 rule create_query:
@@ -106,10 +105,8 @@ rule create_query:
         marq = f"{config['workdir']}/clstr_report_3.txt",
         i1 = f"{config['outputdir']}"
 
-
     output:
         o1 = f"{config['outputdir']}/unknow_TET.fa"
-
 
     shell: """
           conda activate base
@@ -119,7 +116,6 @@ rule create_query:
           """
 
 
-
  ## Rule4 : blastp of unknows TET with Resfinder local DB
 
 rule blastp:
@@ -127,7 +123,6 @@ rule blastp:
         marq = f"{config['workdir']}/clstr_report_3.txt",
         db = f"{config['workdir']}",
         qu1 = f"{config['outputdir']}/unknow_TET.fa"
-
 
     output:
         f"{config['outputdir']}/Blastp_unknowProt.csv"
@@ -140,7 +135,6 @@ rule blastp:
            """
 
 
-
 # ## Rule5 : blastp analyse and define new name of unknows TET
 
 rule balstp_analysis:
@@ -150,10 +144,8 @@ rule balstp_analysis:
     output:
         o1 = f"{config['outputdir']}/name_unknowProt.txt"
 
-
     params:
         T1 = f"{config['outputdir']}/TET_db_{config['threshold']}newRef.fa",
-
 
     shell: """
            conda activate base
@@ -161,7 +153,6 @@ rule balstp_analysis:
            python3 {config[workdir]}/blastp_analysisUnk.py -i {input} -o {output.o1} -c {params.T1} -w {config[outputdir]}
            conda deactivate
            """
-
 
 
 # ## Rule6 : remove pseudogenes data in RefseqFINAL2 table
@@ -180,7 +171,6 @@ rule remove_pseudogenesData:
            python3 {config[workdir]}/remove_pseudoData.py -i {input.i} -o {output.o} -p {input.p}
            conda deactivate
            """
-
 
 
 # ## Rule7 : add clusters data in Refseq table of clustering prot
