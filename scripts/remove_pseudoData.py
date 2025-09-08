@@ -8,8 +8,7 @@ import os, sys, re
 ###############################################################################################
 # ## Notes
 
-""" Remove pseudogenes data in RefseqFNALE2 """
-
+""" Remove pseudogenes data in summary table """
 
 ## Load script :
 
