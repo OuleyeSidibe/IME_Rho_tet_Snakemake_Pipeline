@@ -15,7 +15,7 @@ import fnmatch
 
 ## Load script :
 
-# python3 /script/path/DB_cluster.py -i <inputdir> -o <outputdir>  -f >faa_dir> -p "TetW" "Tet32" "protein=relaxase" "protein=recombinase" -g <groups in order : TetMGE, MGE, Tet> -r <resfinder fasta file>
+# python3 /DB_cluster_byProt.py -i <inputdir> -o <outputdir>  -f >faa_dir> -p "TetW" "Tet32" "protein=relaxase" "protein=recombinase" -g <groups in order : TetMGE, MGE, Tet> -r <resfinder fasta file>
 
 ##################################################################################################################################################################################################################
 
