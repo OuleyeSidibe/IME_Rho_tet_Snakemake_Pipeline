@@ -19,8 +19,7 @@ groups:
  - "\"g_MGE\""
  - "\"g_Tet\""
 CDS_interval: 10
-outputdir2 : /work_projet/isp-pgba/ouleye/PPR_MGEproject/clustering_3
-outputdir2_bis :  /work_projet/isp-pgba/ouleye/PPR_MGEproject/clustering_by_prot_3
+outputdir2 :  /work_projet/isp-pgba/ouleye/PPR_MGEproject/clustering_by_prot_3
 ref_file :
   r1 : /home/osidibe/work/PPR_MGEproject/snakemakes/clustering_3/ResFinder_PPR_Moz.fa
   r2 : /home/osidibe/work/PPR_MGEproject/snakemakes/clustering_3/Relaxase_IME_RhoA2.fa
