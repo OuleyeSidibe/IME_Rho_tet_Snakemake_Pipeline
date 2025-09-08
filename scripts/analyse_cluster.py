@@ -1,4 +1,3 @@
-
  ##Librairies
 import pandas as pd 
 import glob
@@ -8,22 +7,18 @@ from Bio import SeqIO
 
 
 
-################################################################################################################################################################
-# ## Infos 
+#############################################################################################################################################################################
+# ## Notes
 
-""" Sortir les chiffres de clustering par proteines (nb clsusters, seq, genres bacteriens) et définir les références Resfinder et RhoA2-183 comme référence des clusters """
+""" Output the clustering figures by protein (number of clusters, sequence, bacterial genera) and define the Resfinder and RhoA2-183 references as cluster references."""
 
-# ## Lancement script :
+# ## Load script
 
 # python3 ~/analyse_cluster.py -i "inputdir" -t "refseq_table" -p <prot_name> -o >outputdir> -th >threshold>
+##############################################################################################################################################################################
 
 
-
-#################################################################################################################################################################
-
-
-
-# Analyseur d'arguments
+# Arguments
 def config_parameters():
     parser = ArgumentParser()
     parser.add_argument("-i", "--input", dest="inputdir", help="input directory with clusters of proteines")
@@ -49,7 +44,6 @@ def cluster_ref(line):
     return ref
 
 
-
 # Extract protein and nucleotide accession
 def nucl_accession(id_seq):
     ID_ = id_seq.rsplit("_", 1)
@@ -58,7 +52,6 @@ def nucl_accession(id_seq):
     prot_acc = ID_str[2]
 
     return nucl_acc, prot_acc
-
 
 
 # Define genus bacteria of proteins cluster 
@@ -95,7 +88,7 @@ def main():
             prot = f"{prot}_db_{threshold}"
             prot_dir = os.path.join(inputdir, prot)
 
-            # change cdhit reference by resfinder or RhoA2-183 reference
+            # change cd hit reference by resfinder or RhoA2-183 reference
             dict_clustSize = {}
             
             # outfile stat of clustering
