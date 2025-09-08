@@ -7,19 +7,17 @@ from argparse import ArgumentParser
 
 
 ###############################################################################################################
-# ## Infos 
+# ## Notes
 
-""" Analyse des resultats tblastn et mise à jour de la table avec les données de gène tet troncqués"""
+""" Analysis of tblastn results and updating of the table with truncated gene data """
 
-# ## Lancement du script
+# ## Load script
 
 # python3 -i <workdirectory>  -t <refseq table> -b <csv file tblastn> 
 
 ###############################################################################################################
 
-
-
-# Analyseur d'argument
+# Argument
 def config_parameters():
     parser= ArgumentParser()
     parser.add_argument("-i", "--input", dest="inputdir", help="work directory")
@@ -32,25 +30,26 @@ def config_parameters():
     return options.inputdir, options.df, options.tblastn, options.outputTable
 
 
+# main
 def main():
     
     inputdir, df, tblastn, outputTable= config_parameters()
     
-    # lecture de la table de sortie tblantn
+    # read blast resuslt table
     read_blast = pd.read_csv(tblastn, header=None)
     
 
-    #Considére uniquement les resultats blast avec un %identidé >= 50 et une couverture d'au moins 30% et recupérer leur numeros d'accessions
+    # Consider only blast results with an identity percentage >= 50 and coverage of at least 30% and retrieve their accession numbers.
     read_blast = read_blast[read_blast[3] >= 50]
     new_file = read_blast[ read_blast[2]>= 30]
     last_file = new_file.drop_duplicates(subset=[1], keep='first')
     genomes = last_file[1].tolist()
     genome_list = []
-    #retirer la version pour que les données collent à ceux du tableau generale
+    
+    #remove the version so that the data matches that in the general tablee
     for genome in genomes :
         genome = genome.split(".")
         genome_list.append(genome[0])
-    # print(genome_list)
 
 
     read_table = pd.read_csv(df, index_col=[0])
