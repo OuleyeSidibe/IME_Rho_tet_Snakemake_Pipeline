@@ -9,20 +9,17 @@ import fnmatch
 
 
 
-#####################################################################################################################################################################
+###########################################################################################################################################################################
 # ## Infos
 
-""" Traitement des sorties blast afin d'itentifier les GRAs tet proches de la relaxase et de la recombinase
-dans les genomes bactériens bacillota et Actinomycetota  """
+""" Traitement des sorties blast afin d'itentifier les GRAs tet proches de la relaxase et de la recombinase dans les genomes bactériens bacillota et Actinomycetota  """
 
 # ## Lancement du script :
 
 # python3 -i <inputdir with blast result> -o <outputdir> -pi <min of identity percentage> -pc <min of coverage percentage> -t <list of "tet protein" launch in blastp>
 # -int <cds interval> -a <stdout.txt>
 
-#####################################################################################################################################################################
-
-
+###########################################################################################################################################################################
 
 # Analyseur d'arguments
 def config_parameters():
@@ -42,9 +39,9 @@ def config_parameters():
 
 
 ## Functions 
-
 dict_tetMGE={}
 dict_tetOnly={}
+
 
 # Function for extract proteine cds position
 def prot_position(proteine, csv_file):
@@ -52,7 +49,6 @@ def prot_position(proteine, csv_file):
     prot_position = prot["cds_position"].tolist()
     return prot_position
     
-
 
 # Function for count number of genome for each specie
 def nb_genome(path_dir):
@@ -64,13 +60,11 @@ def nb_genome(path_dir):
     return nb_genome
 
 
-
 # Function for creted directory
 def create_dir(outputdir, dir_name, specie_name):
     dir_path = os.path.join(outputdir, dir_name, specie_name)
     os.makedirs(dir_path, exist_ok=True)
     return dir_path
-
 
 
 # Function for Tet proteines count in differents groupes
@@ -82,9 +76,7 @@ def tet_value(tet, dict_tet):
     return dict_tet
 
 
-
 # Function to concate table if we have more than on MGE or tetMGE in genome
-
 def concate_data(repository, table1, table2, tet_pos=None):
     
     if tet_pos is None :  
@@ -98,7 +90,6 @@ def concate_data(repository, table1, table2, tet_pos=None):
         else :
             repository = pd.concat([repository, table1, table2[table2["cds_position"] == tet_pos]], axis=0)
     return repository
-
 
 
 
@@ -186,8 +177,6 @@ def main():
 
 
                                 # Check if tet genes belong to MGE
-                                
-                                                    
                                 if (tet_protein == table_bis.index).any():
                                     
                                     tet_pos = prot_position(tet_protein, table_bis)                
@@ -208,12 +197,9 @@ def main():
                                             # Drop MGE and tet in variable
                                             table_bis = table_bis[~table_bis["cds_position"].isin((postet, pos, pos_2))]
                                             break
-                                    
                                     break
 
-                                
-                            
-
+            
 
                 ##  If tet in genomes but not with MGE check if it's in upstream of MGE
                 
@@ -271,7 +257,6 @@ def main():
                                 
 
             elif (table_bis.index != "protein=relaxase").any() and (table_bis.index != "protein=recombinase").any():
-
                 table_bis_tet = pd.DataFrame()
 
     
@@ -288,9 +273,7 @@ def main():
                 table_bis.to_csv(f"{relax_or_recom_path}/{refseq_acc}.csv")
 
 
-
     # Number of genomes with/without tet genes with recombinase and relaxase    
-
     with open(stdout, "a") as stdout :
         stdout.write(f"\n\n=====================================--------Report blastp & groupes repartition--------=====================================\n\n")
         stdout.write(f"-- {nb_file} blastp launch genomes -- :  {nb_genome(blastpF_path)} retained genomes with threshold coverage ({Pcoverage}%) and identity ({Pidentity}%)\n\n")
