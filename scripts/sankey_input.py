@@ -8,7 +8,7 @@ import sys
 #######################################################################################
 # ## Notes
 
-""" create sankey input file for clustering by prot """
+""" create sankey input file for clustering by proteins """
 # ## Load script :
 
 # python3 ~/sankey_input.py -i "inputdir" -o "outputdire" -g  <"MGE" "TetMGE" "Tet">
