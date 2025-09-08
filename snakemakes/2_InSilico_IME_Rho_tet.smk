@@ -40,10 +40,10 @@ for specie in SPECIES:
 
 rule all:
     input:  
-        # [f"{config['outputdir']['blastp_Groups_2']}/blastp/{specie}/{GCF_file}" for specie, annotations in dict_specie.items() for GCF_file in annotations],
-        # expand("{blastp_Groups_2}/groupes", blastp_Groups_2=config['outputdir']['blastp_Groups_2']),
-        # expand("{directory}/gb_files", directory=config['outputdir']['blastp_Groups_2']),
-        # f"{config['outputdir']['blastp_Groups_2']}/tBlastn/blastTronc.csv",
+        [f"{config['outputdir']['blastp_Groups_2']}/blastp/{specie}/{GCF_file}" for specie, annotations in dict_specie.items() for GCF_file in annotations],
+        expand("{blastp_Groups_2}/groupes", blastp_Groups_2=config['outputdir']['blastp_Groups_2']),
+        expand("{directory}/gb_files", directory=config['outputdir']['blastp_Groups_2']),
+        f"{config['outputdir']['blastp_Groups_2']}/tBlastn/blastTronc.csv",
         f"{config['workdir']}/Genre_ab_Absolue_Relative.csv",
         f"{config['outputdir2_bis']}"
 
