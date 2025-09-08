@@ -32,17 +32,22 @@ IFS=$'\n'
 # conda activate meme-5.5.7
 
 #search in csv file line which contains filter, extract interest columns and stock data in vals
+# 1st launch
 for vals in `grep $FILTER $refseqTable | cut -d "," -f 2,3,9,21,22`; do
+
+# 2nd launch
 # for vals in `grep $FILTER $refseqTable | grep " sp. " | cut -d "," -f 2,3,9,21,22`; do # process only unamed species: 'sp. XXX' 
 
  #extract accession genome and species name
  ass=`echo $vals | cut -d ',' -f 1`
+ # 1st launch
  species=`echo $vals | cut -d ',' -f 2| cut -d " " -f 1,2 | tr " " "_"`  
+ 
+ # 2nd launch
 #  species=`echo $vals | cut -d ',' -f 2| tr " " "_"`  # without the 'cut -d " " -f 1,2' to process unamed species: 'sp. XXX' 
  
 
-
- ##### dezip assembli files fisrt if necessary
+# Launch alone (not with fimo )if necessary t dezip assembli files fisrt if necessary
 
 #   if [ -e "$inputdir/g_Tet/$species/$ass/${ass}_genomic.fna.gz" ]; then
 #   echo dezip process of $ass in $species
