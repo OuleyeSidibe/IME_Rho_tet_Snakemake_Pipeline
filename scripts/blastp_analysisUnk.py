@@ -15,7 +15,7 @@ from Bio import SeqIO
 
 ## Load script :
 
-# python3 /blastp_analysis.py -i <inputdir> -o <outputdir>  -c <tet new ref cluster>
+# python3 /blastp_analysisUnk.py -i <inputdir> -o <outputdir>  -c <tet new ref cluster> -w >workdir>
 
 #########################################################################################################################
 
