@@ -12,7 +12,7 @@ import sys
 
 # ## Load script :
 
-# python3 ~/create_query.py -i "inputfile" -o "outputfile"
+# python3 ~/create_query.py -i "inputfile" -o "outputdir"
 
 #################################################################################################################################################################
 
@@ -21,15 +21,15 @@ import sys
 # Arguments
 def config_parameters():
     parser = ArgumentParser()
-    parser.add_argument("-i", "--input", dest="inputdir", help="input directory with clusters of proteines")
+    parser.add_argument("-i", "--input", dest="inputfile", help="input directory with clusters of proteines")
     parser.add_argument("-o", "--out", dest="outputdir", help="output file report")
     options=parser.parse_args()
     if len(sys.argv) < 2:
         sys.exit("Warning : wrong number of arguments")
-    return options.inputdir, options.outputdir
+    return options.inputfile, options.outputdir
 
 
-inputdir, outputdir = config_parameters()
+inputfile, outputdir = config_parameters()
 
 # Create query file for blastp analysis
 def create_query(input_file, output_file):
@@ -40,5 +40,5 @@ def create_query(input_file, output_file):
     return query_file
 
 
-create_query(inputdir, outputdir)
+create_query(inputfile, outputdir)
 
