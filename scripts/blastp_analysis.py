@@ -1,4 +1,4 @@
-## Librairies
+te em## Librairies
 import pandas as pd
 from argparse import ArgumentParser
 import glob
@@ -144,7 +144,7 @@ def main():
 
         table = file_sort 
         
-        # Ne pas sauvegarder les fichiers vides
+        # remove empty file
         if len(table) != 0 :
             blastpF_path = create_dir(outputdir, "Blastp_filter", specie_name)
             print(blastpF_path)
@@ -182,7 +182,7 @@ def main():
                                     tet_pos = prot_position(tet_protein, table_bis)                
                                     for postet in tet_pos:                                    
 
-                                        # Si l'MGE complet associé au tet dans le brin sens ou antisens
+                                        # If complet IME_Rho_tet
                                         if ( ((int(pos_2) > int(pos) and int(pos_2) <= cds_interval.stop -1) and (int(postet) >= cds_interval.start and int(postet) < int(pos))) or ((int(pos_2) < int(pos) and int(pos_2) >= cds_interval.start - 1) and (int(postet) <= cds_interval.stop and int(postet) > int(pos))) ):                              
                                             
                                             # Check number of each Tet protein with element
