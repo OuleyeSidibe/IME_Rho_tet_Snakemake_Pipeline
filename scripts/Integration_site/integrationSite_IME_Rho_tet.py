@@ -2,30 +2,47 @@
 import pandas as pd
 from Bio import SeqIO
 from Bio.Seq import Seq
-
-# # from Bio.SeqRecord import SeqRecord
 import os
 import gzip
 
-## paths
-path="/home/osidibe/work/PPR_MGEproject/Fimo/fimo_newID/RefseqFINAL3_TIRS_IME_Rho_tet.csv"
 
-# fa_dir = "/db/gb_bacteria/gb_bacteria_2025-03-16/flat"
-fa_dir="/work_projet/isp-pgba/sebastien/tetPPR/Assemblies/g_TetMGE/"
-outputdir = "/home/osidibe/work/PPR_MGEproject/integration_site/nucl_analyse_newID"
-# lire la table et les colonnes necessaires
-df= pd.read_csv(path, usecols=["Refseq_accession","Bacteria_specie","Nucleotide_accession","TIR_amont_coord","TIR_aval_coord","strand","groupe"], index_col=[2])
+###########################################################################################
+# ## Notes
+
+""" TIRs flanking regions extraction of IME_Rho_tet-carring genomes """
+
+## Load script :
+
+# python3 /remove_pseudoData.py -i <inputdir> -o <outputdir> -p <pseudogenes file data>
+
+###########################################################################################
 
 
-# parametre d'extension des palindrome en amont et en aval
+# Arguments
+def config_parameters():
+    parser=ArgumentParser()
+    parser.add_argument("-i", "--input", dest="inputfile", help=" IME_Rho_tet table with TIRs information")
+    parser.add_argument("-o", "--output", dest="outputdir", help="output directory")
+    parser.add_argument("-f", "--pseudo", dest="fa_dir", help="assemblies directory")
+    args=parser.parse_args()
+    if len(sys.argv) < 3 :
+        sys.exit("Warning : wrong number of argument")
+    return args.inputfile, args.outputdir, args.fa_dir
+
+
+
+inputfile, outputdir, fa_dir = config_parameters()
+
+# read table
+df= pd.read_csv(inputfile, usecols=["Refseq_accession","Bacteria_specie","Nucleotide_accession","TIR_amont_coord","TIR_aval_coord","strand","groupe"], index_col=[2])
+
+
+# extraction parameters
 extr_Pb = 150
 max_lenght = (extr_Pb - 2)*2 # TSD
 
-# test avec les 5 premiére lignes
-# df = df.iloc[:5,]
 
-
-# extraire la sequence fasta de l'accession nucléotidique
+# Extracte nucleotide sequence for accessions
 def download_fa_file(fa_dir, specie_name, refseq_acc, outputdir, groupe_name, nucl_acc, TIR_amont_coord,TIR_aval_coord,strand):
     fa_file = os.path.join(fa_dir, specie_name , refseq_acc + f"/{refseq_acc}_genomic.fna")          
     fa_dest_dir = os.path.join(outputdir + "/FA_files/", groupe_name, specie_name)
@@ -40,7 +57,7 @@ def download_fa_file(fa_dir, specie_name, refseq_acc, outputdir, groupe_name, nu
             mode ="a" if os.path.exists(fa_dest) else "w" 
             with open(fa_dest, f"{mode}t") as zip_out, open(f"{outputdir}/integ_fasta.fa", "a") as new_fa :
                 
-                #extraire uniquemment le fasta correspondant
+                #extract fasta files
                 for record in SeqIO.parse(zip_in, 'fasta'):
                     if nucl_acc in record.id :
                         # get tir coord and #extract news seqs
@@ -73,7 +90,7 @@ def download_fa_file(fa_dir, specie_name, refseq_acc, outputdir, groupe_name, nu
                                 new_seq = new_seq.reverse_complement()
                             
                             
-                            # check if seq is enough long
+                            # check if sequence is enough long
                             if len(new_seq) < max_lenght :
                                 print(f"Seq amont or aval too short : {nucl_acc} amont: {len(new_seq_amont)}, aval: {len(new_seq_aval)}, strand: {strand}")
                                 #do not take sequence
@@ -90,7 +107,7 @@ def download_fa_file(fa_dir, specie_name, refseq_acc, outputdir, groupe_name, nu
     except FileNotFoundError:
         print(f"File not found : {fa_file}")
 
-# Parcourir la table ligne par ligne
+# read table line by line
 for index, row in df.iterrows():
     specie_name = row["Bacteria_specie"].replace(" ", "_")
     refseq_acc = row["Refseq_accession"]
