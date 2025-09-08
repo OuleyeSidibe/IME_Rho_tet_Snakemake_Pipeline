@@ -11,7 +11,7 @@ import pandas as pd
 
 # ## Load script
 
-# python3 ~/Refseq_GB_remove.py -i "inputdir" -t "refseq_table" -p <prot_name> -o >outputdir> -th >threshold>
+# python3 ~/Refseq_GB_remove.py -i "inputfile" -o <outputfile>
 ##############################################################################################################################################################################
 
 # Arguments
@@ -22,7 +22,7 @@ def config_parameters():
     args=parser.parse_args()
     if len(sys.argv) < 2 :
         sys.exit("Warning : wrong number of argument")
-    return args.inputfile, args.outputdir
+    return args.inputfile, args.outputfile
 
 
 inputfile, outputfile= config_parameters()
