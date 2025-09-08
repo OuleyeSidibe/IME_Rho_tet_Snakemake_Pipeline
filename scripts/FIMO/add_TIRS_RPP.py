@@ -1,14 +1,39 @@
+## Librairies
 import pandas as pd
+from argparse import ArgumentParser
 
-table="/home/osidibe/work/PPR_MGEproject/Fimo/fimo_newID/RefseqFINAL3.csv"
 
-table_TIRs_tet="/home/osidibe/work/PPR_MGEproject/Fimo/fimo_newID/parse_outTet.csv"
-# table_TIRs_IME_Rho_tet="/home/osidibe/work/PPR_MGEproject/Fimo/fimo_newID/parse_outIME_Rho_tet.csv"
+###################################################################################
+# ## Notes
+
+""" Add TIRS of RPP data in summary table """
+
+## Load script :
+
+# python3 /add_TIRS_RPP.py -i <inputfile> -o <output table> -t <summary table>
+
+##################################################################################
+
+# Arguments
+def config_parameters():
+    parser=ArgumentParser()
+    parser.add_argument("-i", "--input", dest="inputfile", help="TIRs RPP data")
+    parser.add_argument("-o", "--output", dest="outputfile", help="summary table with TIRS RPP data")
+    parser.add_argument("-t", "--table", dest="table", help="RefSeq finale table without pseudogenes data")
+    args=parser.parse_args()
+    if len(sys.argv) < 3 :
+        sys.exit("Warning : wrong number of argument")
+    return args.inputfile, args.outputdir, args.table
+
+
+inputfile, outputfile, table = config_parameters()
+
+
 #1 read refseq table to add information about TIRs
 df = pd.read_csv(table, sep=",", index_col=0)
 df = df[df["groupe"] == "Tet"]
 
-#2 ajouter les colonnes pour les TIRs
+# add new columns
 df["TIR_amont"]= ""
 df["TIR_amont_coord"]= ""
 df["TIR_aval"]= ""  
@@ -18,17 +43,10 @@ df["MGE_size"]=""
 for index, row in df.iterrows():
     uniq_id = index
     # read the TIRs table to check uniq_id
-    df_TIRs = pd.read_csv(table_TIRs_tet, sep=",", index_col=0)
+    df_TIRs = pd.read_csv(inputfile, sep=",", index_col=0)
     #4 check if the uniq_id is in the TIRs table
     if uniq_id in df_TIRs.index and row["groupe"] == "Tet":
 
-    # read the TIRs table to check uniq_ID
-    # df_TIRs = pd.read_csv(table_TIRs_seb, sep=",", index_col=0)
-    
-    # for index_2, row_2 in df_TIRs.iterrows():
-    #     #4 check if the uniq_id is in the TIRs table
-        
-    #     if index == index_2 and row["Nucleotide_accession"] == row_2["Nucleotide_accession"]  :
             
         #5 get the TIRs information
         tir_amont = df_TIRs.loc[index, "TIRamont_seq"]
@@ -55,7 +73,6 @@ for index, row in df.iterrows():
             else :
                 tir_aval_coord = ""
             
-            
 
             #6 add the TIRs information to the dataframe
             df.at[index, "TIR_amont"] = tir_amont
@@ -65,6 +82,4 @@ for index, row in df.iterrows():
             
        
 
-# print(df)
-# df.to_csv("/home/osidibe/work/PPR_MGEproject/Fimo/fimo_newID/RefseqFINAL3_TIRS_IME_Rho_tet.csv")
-df.to_csv("/home/osidibe/work/PPR_MGEproject/Fimo/fimo_newID/RefseqFINAL3_TIRS_Tet.csv")
+df.to_csv(outputfile, index=FALSE)
