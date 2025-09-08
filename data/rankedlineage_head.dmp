@@ -1,0 +1,10 @@
+	|	root	|		|		|		|		|		|		|		|		|
+131567	|	cellular organisms	|		|		|		|		|		|		|		|		|
+2157	|	Archaea	|		|		|		|		|		|		|		|		|
+1935183	|	Asgard group	|		|		|		|		|		|		|		|	Archaea	|
+2798909	|	Candidatus Baldrarchaeota	|		|		|		|		|		|		|		|	Archaea	|
+2798916	|	Candidatus Baldrarchaeia	|		|		|		|		|		|	Candidatus Baldrarchaeota	|		|	Archaea	|
+2798922	|	Candidatus Baldrarchaeales	|		|		|		|		|	Candidatus Baldrarchaeia	|	Candidatus Baldrarchaeota	|		|	Archaea	|
+2798928	|	Candidatus Baldrarchaeaceae	|		|		|		|	Candidatus Baldrarchaeales	|	Candidatus Baldrarchaeia	|	Candidatus Baldrarchaeota	|		|	Archaea	|
+2798934	|	Candidatus Baldrarchaeum	|		|		|	Candidatus Baldrarchaeaceae	|	Candidatus Baldrarchaeales	|	Candidatus Baldrarchaeia	|	Candidatus Baldrarchaeota	|		|	Archaea	|
+2798940	|	Candidatus Baldrarchaeum yapensis	|		|	Candidatus Baldrarchaeum	|	Candidatus Baldrarchaeaceae	|	Candidatus Baldrarchaeales	|	Candidatus Baldrarchaeia	|	Candidatus Baldrarchaeota	|		|	Archaea	|
