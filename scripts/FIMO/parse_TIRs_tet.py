@@ -1,20 +1,20 @@
-#!/usr/bin/python3
-
-##########################################################################################
-#
-# Parse FIMO outputs to extract TIR which match with IME_Rho_tet positions and orientations
-# within assemblies
-# FIMO outputs were computed on Migale.
-#
-# AI-generated script using app.codeconvert.ai on March, 11th 2025
-#
-##########################################################################################
-
-
+# Librairies
 import csv
 import pandas as pd 
 import os
 
+
+############################################################################################
+# ## Notes 
+
+"""  Parse FIMO outputs to extract TIR which match with RPP positions and orientations """
+
+# ## Load script  in work directory with appropriate input files
+
+############################################################################################
+
+
+# Functions
 def process_files():
     # Open the CSV file "RefseqFINAL3.csv)"
     try:
@@ -22,13 +22,12 @@ def process_files():
             csv_reader = csv.reader(csvfile)
             
             
-          
             # print("ID strand TIRamont_s TIRamont_e TIRamont_seq TIRaval_s TIRaval_e TIRaval_seq mge_size TIRamont_s2 TIRamont_e2 TIRamont_seq2")
             for row in csv_reader:
                 # Check if row has enough columns (at least 23 columns for index 22)
                 if len(row) < 23:
                     continue
-                # Only process rows where column 23 (index 22) equals "TetMGE"
+                # Only process rows where column 23 (index 22) equals "Tet"
                 if row[22] != 'Tet':
                     continue
 
@@ -39,8 +38,6 @@ def process_files():
                 ACC = row[1]
                 NUCL = row[8]
            
-                # REL_str = row[12]
-                # REC_str = row[15]
 
                 MGE_str = row[20]
 
@@ -56,15 +53,8 @@ def process_files():
                 aval_seq = None
                 mge_size = None
 
-                # Parse REC, REL, and MGE ranges (format 'start..end')
+                # Parse MGE ranges (format 'start..end')
                 try:
-                    # rec_parts = REC_str.split("..")
-                    # rec_start = int(rec_parts[0])
-                    # rec_end   = int(rec_parts[1])
-
-                    # rel_parts = REL_str.split("..")
-                    # rel_start = int(rel_parts[0])
-                    # rel_end   = int(rel_parts[1])
 
                     mge_parts = MGE_str.split("..")
                     mge_start = int(mge_parts[0])
@@ -79,13 +69,6 @@ def process_files():
                     # If parsing fails, skip this row
                     print(ID, strand, amont_s, amont_e, amont_seq, aval_s, aval_e, aval_seq, mge_size, amont_s2, amont_e2, amont_seq2, "error in parsing positions")
                     continue
-
-                # Determine STRAND based on comparison of REC start and REL start
-                ##for TetMGE groupe
-                # if rec_start > rel_start:
-                #     strand = "+"
-                # else:
-                #     strand = "-"
                 
                 ##for tet groupe
                 strand=row[21]
@@ -179,7 +162,6 @@ def process_files():
                 # Print the required output: ID, STRAND, AMONT_S, AMONT_E, AMONT_SEQ, 
                 # AVAL_S, AVAL_E, AVAL_SEQ, MGE_SIZE
                 parse_out.write(f"{ID}, {NUCL}, {MGE_str}, {amont_s}, {amont_e}, {amont_seq}, {aval_s}, {aval_e}, {aval_seq}, {mge_size}, {amont_s2}, {amont_e2}, {amont_seq2}\n")
-                
                 
 
     except FileNotFoundError:
