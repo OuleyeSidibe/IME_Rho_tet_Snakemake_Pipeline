@@ -8,23 +8,18 @@ import fnmatch
 
 
 
-###################################################################################################################################################################################################################
+##################################################################################################################################################################################################################
 # ## Notes
 
 """ Create proteines database for clustering_by_prot step"""
-
 
 ## Load script :
 
 # python3 /script/path/DB_cluster.py -i <inputdir> -o <outputdir>  -f >faa_dir> -p "TetW" "Tet32" "protein=relaxase" "protein=recombinase" -g <groups in order : TetMGE, MGE, Tet> -r <resfinder fasta file>
 
-# """Les identifiants des fichiers fasta r1, r2, r3 doivent imperativemment commencaient par "Tet", "Rel" et "Rec" """ exple : >Tet(W)_1_DQ060146, >Relaxase_IME_RhoA2 ,>Recombinase_IME_RhoA2 
+##################################################################################################################################################################################################################
 
-######################################################################################################################################################################################################################
-
-
-
-# Analyseurs d'arguments
+# Arguments
 def config_parameters():
     parser=ArgumentParser()
     parser.add_argument("-i", "--input", dest="inputdir", help="inputdir groups for protéins db")
@@ -94,7 +89,6 @@ def nucl_accession(record_id):
 
 
 
-
 ## ADD proteines reference in database file for each protein
 def add_reference(prot_path, reference_file, outputdir):
     psd_id=""
@@ -146,7 +140,6 @@ def delete_pseudo(path, rm_record):
 
 
 ## mean
-
 for grp in groups :
 
     grp_prot = glob.glob(f"{inputdir}/{grp}/*/*")
@@ -197,8 +190,6 @@ REC_path, rm_REC = add_reference(REC_path, rec_ref, outputdir)
 
 rm_record = rm_TET + rm_REL + rm_REC
 rm_record = list(set(rm_record))
-# print(rm_record)
-
 
 # delete pseudo gene in corrresponding file
 delete_pseudo(TET_path, rm_record)
