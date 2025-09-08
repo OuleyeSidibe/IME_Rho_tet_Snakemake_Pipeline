@@ -6,16 +6,16 @@ import os
 import gzip
 
 
-###########################################################################################
+##########################################################################################
 # ## Notes
 
 """ TIRs flanking regions extraction of IME_Rho_tet-carring genomes """
 
 ## Load script :
 
-# python3 /remove_pseudoData.py -i <inputdir> -o <outputdir> -p <pseudogenes file data>
+# python3 /integrationSite_IME_Rho_tet.py -i <inputdir> -o <outputdir> -f <fa_dir>
 
-###########################################################################################
+########################################################################################
 
 
 # Arguments
@@ -23,7 +23,7 @@ def config_parameters():
     parser=ArgumentParser()
     parser.add_argument("-i", "--input", dest="inputfile", help=" IME_Rho_tet table with TIRs information")
     parser.add_argument("-o", "--output", dest="outputdir", help="output directory")
-    parser.add_argument("-f", "--pseudo", dest="fa_dir", help="assemblies directory")
+    parser.add_argument("-f", "--fa", dest="fa_dir", help="assemblies directory")
     args=parser.parse_args()
     if len(sys.argv) < 3 :
         sys.exit("Warning : wrong number of argument")
@@ -42,7 +42,7 @@ extr_Pb = 150
 max_lenght = (extr_Pb - 2)*2 # TSD
 
 
-# Extracte nucleotide sequence for accessions
+# Extract nucleotide sequence for accessions
 def download_fa_file(fa_dir, specie_name, refseq_acc, outputdir, groupe_name, nucl_acc, TIR_amont_coord,TIR_aval_coord,strand):
     fa_file = os.path.join(fa_dir, specie_name , refseq_acc + f"/{refseq_acc}_genomic.fna")          
     fa_dest_dir = os.path.join(outputdir + "/FA_files/", groupe_name, specie_name)
