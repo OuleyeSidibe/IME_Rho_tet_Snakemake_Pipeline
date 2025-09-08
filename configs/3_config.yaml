@@ -1,0 +1,18 @@
+workdir : /home/osidibe/work/PPR_MGEproject/snakemakes/clustering_by_prot_3_2025Article
+outputdir : /work_projet/isp-pgba/ouleye/PPR_MGEproject/clustering_by_prot_3_2025Article
+inputdir : /work_projet/isp-pgba/ouleye/PPR_MGEproject/blastp_Groups_2/groupes
+faa_dir : /work_projet/isp-pgba/ouleye/PPR_MGEproject/migale_data_1
+refseq_t : /home/osidibe/work/PPR_MGEproject/snakemakes/blastp_Groups_2/RefseqFINALE.csv
+threshold: 0.9
+proteins:
+ - "\"Tet(W)\""
+ - "\"protein=relaxase\""
+ - "\"protein=recombinase\""
+prot_name:
+ - TET
+ - REL
+ - REC
+groups :
+ - "\"g_TetMGE\""
+ - "\"g_MGE\""
+ - "\"g_Tet\""
