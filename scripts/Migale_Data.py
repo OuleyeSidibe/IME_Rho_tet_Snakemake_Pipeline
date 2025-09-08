@@ -15,7 +15,7 @@ from argparse import ArgumentParser
 
 # ## Load script :
 
-# python3 -d <directory> -o <output directory> -db /db/gb_bacteria/current/flat/ -out /home/osidibe/work/PPR_MGEproject/snakemakes/screening_1/stdout_report
+# python3 /Migale_data.py -d <directory> -o <output directory> -db /db/gb_bacteria/current/flat/ -out /home/osidibe/work/PPR_MGEproject/snakemakes/screening_1/stdout_report
 
 ##############################################################################################################################################################################
 
