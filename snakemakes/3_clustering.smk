@@ -51,11 +51,8 @@ rule all:
         f"{config['workdir']}/RefseqFINAL3.csv"
 
 
-
-
-""" Step 9 """
-
 ## Rule1 : clusterised proteins database
+
 rule clustering:
     input:
         f"{config['outputdir']}"
@@ -79,10 +76,8 @@ rule clustering:
            """
 
 
-
-""" step 10"""
-
 ## Rule2 : Analyse et modifie clusters
+
 rule analyse_cluster:
     input:
         marq = f"{config['workdir']}/clust.stderr",
@@ -103,9 +98,9 @@ rule analyse_cluster:
            """
 
 
-""" Step 12 Blastp of unknows TET with Resfinder local DB """ 
 
 #rule3 : create query file of not referenced tet
+
 rule create_query:
     input:
         marq = f"{config['workdir']}/clstr_report_3.txt",
@@ -126,6 +121,7 @@ rule create_query:
 
 
  ## Rule4 : blastp of unknows TET with Resfinder local DB
+
 rule blastp:
     input:
         marq = f"{config['workdir']}/clstr_report_3.txt",
@@ -145,10 +141,8 @@ rule blastp:
 
 
 
-
-""" Step 13 """
-
 # ## Rule5 : blastp analyse and define new name of unknows TET
+
 rule balstp_analysis:
     input:
         f"{config['outputdir']}/Blastp_unknowProt.csv"
@@ -170,9 +164,8 @@ rule balstp_analysis:
 
 
 
-""" Step 14 """
-
 # ## Rule6 : remove pseudogenes data in RefseqFINAL2 table
+
 rule remove_pseudogenesData:
     input:
         i = f"{config['refseq_t']}",
@@ -189,8 +182,6 @@ rule remove_pseudogenesData:
            """
 
 
-
-""" Step 15 """
 
 # ## Rule7 : add clusters data in Refseq table of clustering prot
 
@@ -210,7 +201,7 @@ rule add_clstrData:
            """
 
 
-""" Step 16 Alignment and phylogeny snakemake file """ 
+""" Go to FIMO scripts """ 
 
 
 
