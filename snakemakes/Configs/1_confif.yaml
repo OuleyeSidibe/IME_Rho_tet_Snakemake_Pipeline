@@ -1,0 +1,3 @@
+inputdir: input path of migale database
+outputdir: output directory path
+workdir: work directory
