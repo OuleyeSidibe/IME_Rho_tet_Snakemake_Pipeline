@@ -15,15 +15,12 @@ shell.prefix("source /usr/local/genome/Anaconda3/etc/profile.d/conda.sh;")
 
 
 # ## Configure yaml file
-
 configfile: "config.yaml"
 
 
 """ Note : To launch snk file, positionning in workdir repository """
 
 
-
-""" Step1 """
 
 ## Rule1 : export amino acide translated files of Bacillota and actinomycetota phyla from migale server """
 
@@ -41,4 +38,4 @@ rule export_data:
             rm {config[outputdir]}/.snakemake_timestamp
             """
 
-""" Step2 : go to createGroups snake file """
+""" go to InSilico_IME_Rho_tet snakefile """
