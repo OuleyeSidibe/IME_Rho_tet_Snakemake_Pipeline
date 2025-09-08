@@ -38,4 +38,4 @@ rule export_data:
             rm {config[outputdir]}/.snakemake_timestamp
             """
 
-""" go to InSilico_IME_Rho_tet snakefile """
+""" go to 2_InSilico_IME_Rho_tet snakefile """
