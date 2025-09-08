@@ -8,21 +8,18 @@ import gzip
 from argparse import ArgumentParser
 
 
-
 ##############################################################################################################################################################################
-# ## Infos:
+# ## Notes:
 
-""" Script pour recupérer les fichiers d'aa "translated_cds.faa" de la bd migale pour les souches des phylum firmicutes ("bacillota") et Actinobacteria ("Actinomycetota")"""
+""" Download "translated_cds.faa" files in migale database for bacillota and Actinomycetota """
 
-# ## Lancement du script :
+# ## Load script :
 
 # python3 -d <directory> -o <output directory> -db /db/gb_bacteria/current/flat/ -out /home/osidibe/work/PPR_MGEproject/snakemakes/screening_1/stdout_report
 
 ##############################################################################################################################################################################
 
-
-
-## Analyseur d'argument
+## Argument
 def config_parameters():
     parser = ArgumentParser()
     parser.add_argument("-d", "--directory", dest="directory", help="directory")
@@ -36,8 +33,7 @@ def config_parameters():
     return options.directory, options.outputdir, options.db_repository, options.stdout_report
 
 
-
-
+# main
 def main():
     directory, outputdir, db_repository, stdout_report = config_parameters()
     
