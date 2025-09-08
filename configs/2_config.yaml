@@ -1,0 +1,29 @@
+inputdir: /db/gb_bacteria/current/flat/
+outputdir: 
+  migale_data: /work_projet/isp-pgba/ouleye/PPR_MGEproject/migale_data_1
+  import_Data_1: /home/osidibe/work/PPR_MGEproject/snakemakes/import_Data_1
+  blastp_Groups_2: /work_projet/isp-pgba/ouleye/PPR_MGEproject/blastp_Groups_2
+workdir: /home/osidibe/work/PPR_MGEproject/snakemakes/blastp_Groups_2
+min_identity : 50
+min_coverage : 95
+TET : "\"Tet(W)\""
+proteins:
+ - "\"Tet(W)\""
+ - "\"protein=relaxase\""
+ - "\"protein=recombinase\""
+MGE: 
+  protein=relaxase
+  protein=recombinase
+groups:
+ - "\"g_TetMGE\""
+ - "\"g_MGE\""
+ - "\"g_Tet\""
+CDS_interval: 10
+outputdir2 : /work_projet/isp-pgba/ouleye/PPR_MGEproject/clustering_3
+outputdir2_bis :  /work_projet/isp-pgba/ouleye/PPR_MGEproject/clustering_by_prot_3
+ref_file :
+  r1 : /home/osidibe/work/PPR_MGEproject/snakemakes/clustering_3/ResFinder_PPR_Moz.fa
+  r2 : /home/osidibe/work/PPR_MGEproject/snakemakes/clustering_3/Relaxase_IME_RhoA2.fa
+  r3 : /home/osidibe/work/PPR_MGEproject/snakemakes/clustering_3/Recombinase_IME_RhoA2.fa
+report_1 : /home/osidibe/work/PPR_MGEproject/snakemakes/import_Data_1/dataReport_1.csv
+taxonomie_1 : /home/osidibe/work/PPR_MGEproject/snakemakes/import_Data_1/NCBI_taxoResume_2.csv
