@@ -9,17 +9,17 @@ import fnmatch
 
 
 
-###########################################################################################################################################################################
+###########################################################################################################################################################################################
 # ## Notes
 
 """ Processing of blast outputs to identify ARGs close to relaxase and recombinase in Bacillota and Actinomycetota bacterial genomes  """
 
 # ## Load script :
 
-# python3 -i <inputdir with blast result> -o <outputdir> -pi <min of identity percentage> -pc <min of coverage percentage> -t <list of "tet protein" launch in blastp>
+# python3 /blastp_analysis.py -i <inputdir with blast result> -o <outputdir> -pi <min of identity percentage> -pc <min of coverage percentage> -t <list of "tet protein" launch in blastp>
 # -int <cds interval> -a <stdout.txt>
 
-###########################################################################################################################################################################
+############################################################################################################################################################################################
 
 # Arguments
 def config_parameters():
