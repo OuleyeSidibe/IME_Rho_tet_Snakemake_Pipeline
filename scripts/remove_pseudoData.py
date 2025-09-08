@@ -5,7 +5,7 @@ import os, sys, re
 
 
 
-###############################################################################################################################################################################################
+###############################################################################################
 # ## Notes
 
 """ Remove pseudogenes data in RefseqFNALE2 """
@@ -14,14 +14,11 @@ import os, sys, re
 ## Load script :
 
 # python3 /remove_pseudoData.py -i <inputdir> -o <outputdir> -p <pseudogenes file data>
-##inputdir ="/home/osidibe/work/PPR_MGEproject/snakemakes/blastp_Groups_2/RefseqFINALE.csv"
-##outputdir="/home/osidibe/work/PPR_MGEproject/snakemakes/clustering_by_prot_3_2025Article/RefseqFINALE2.csv"
-##pseudo = "/home/osidibe/work/PPR_MGEproject/snakemakes/clustering_by_prot_3_2025Article/report_3.stdout"
 
-################################################################################################################################################################################################
+################################################################################################
 
 
-# Analyseurs d'arguments
+# Arguments
 def config_parameters():
     parser=ArgumentParser()
     parser.add_argument("-i", "--input", dest="inputdir", help="inputdir groups for protéins db")
@@ -39,7 +36,7 @@ inputdir, outputdir, pseudo = config_parameters()
 
 table = pd.read_csv(inputdir)
 
-# recuperer les accession des pseudo_génes
+# pseudogene accessions
 list_acc = []
 
 with open (pseudo, "r") as pseudo_file :
@@ -53,9 +50,9 @@ for line in lines :
         list_acc.append(acc_gen)
 
 # print(len(list_acc))
-    
 
-# Enlver les pseudo_genes de la table RefSeq
+
+# remove pseudogenes data on summary table
 for pseudo in list_acc :
     
     for index, row in table.iterrows() :
