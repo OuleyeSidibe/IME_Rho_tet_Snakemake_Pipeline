@@ -15,7 +15,6 @@ shell.prefix("source /usr/local/genome/Anaconda3/etc/profile.d/conda.sh;")
 
 
 # ## Configure yaml file
-
 configfile: "config.yaml"
 
 
@@ -51,11 +50,7 @@ rule all:
     
 
 
-""" Step2 : Create a query file of proteins of interest (TetW, Relaxase, recombinase) in workdir """
-
-
-
-""" Step3 """
+"""  Create a query file of proteins of interest (TetW, Relaxase, recombinase) in workdir """
 
 # Rule1 : Proteins blast of query file on import migale data
 
@@ -79,9 +74,7 @@ rule blastp:
 
 
 
-""" Step4 """
-
-# Rule2 : Traitemment des sorties blastp pour identifier les PPR avec/sans les modules de recombinaisons et conjugaison 
+# Rule2 : blastp results analysis to identify RPP with/without relaxase and recombinase
 
 rule blastp_analysis:
     input:
@@ -101,9 +94,8 @@ rule blastp_analysis:
            """
 
 
-""" Step5  """
+# Rule3 : Summary table with metaData
 
-# Rule3 : Créer une table récapitulative des données avec les caractéristiques genbank
 rule refseq_table:
     input:
         i = expand("{directory}/groupes", directory=config['outputdir']['blastp_Groups_2']),
@@ -126,13 +118,10 @@ rule refseq_table:
            """
 
 
+""" Create a query file of TetW protein sequence in workdir """
 
+## Rule4 : SEarch troncated tet(W) genes in IME_Rho_tet with tblastn tool and isolate them 
 
-""" Step6 : Create a query file of TetW protein sequence in workdir """
-
-""" Step7 """
-
-## Rule4 : recherche de gènes tet tronqué dans le groupe MGE par tblastn et les isoler 
 rule tblastn:
     input: 
         db = f"{config['outputdir']['blastp_Groups_2']}/db_troncSearch.txt",
@@ -148,11 +137,8 @@ rule tblastn:
             """
 
 
+# Rule5 : tblastn result analysis and summary table updating 
 
-
-""" Step8 """
-
-# Rule5 : Analyse des resultats tblastn et actualisation de la table refseq avec les données troncqués
 rule tblastn_analysis:
     input:
         i = expand("{directory}/groupes", directory=config['outputdir']['blastp_Groups_2']),
@@ -168,10 +154,8 @@ rule tblastn_analysis:
            """
 
 
+# Rule6 :  File of relative abundances by genus per group - Absolute abundance by genus - Number of genera per group
 
-""" Step9 """
-
-# Rule6 :Fichier des abondances relatives par genre par groupe - Abondance absolue par genre - Nbr de genres par groupe
 rule abondance_genus:
     input:
         i = f"{config['workdir']}/RefseqFINALE.csv"
@@ -189,33 +173,30 @@ rule abondance_genus:
 
 
 
-
-""" Step10 choice the script according to clusterise by groupe proteine (DB_cluster.py) or by protein (DB_cluster_byProt.py)"""
-
-
 ## Rule7 : Create proteins database in each groups
-# rule DB_cluster:
-#     input: 
-#         i = f"{config['outputdir']['blastp_Groups_2']}",
-#         f = f"{config['outputdir']['migale_data']}",
-#         r1 = f"{config['ref_file']['r1']}",
-#         r2 = f"{config['ref_file']['r2']}",
-#         r3 = f"{config['ref_file']['r3']}"
 
-#     output:
-#         directory(f"{config['outputdir2']}")
-    
-#     params:
-#         p = config['proteins'],
-#         g = config['groups']
-    
-#     shell: """
-#            conda activate base
-#            python3 {config[workdir]}/DB_cluster.py -i {input.i}/groupes -o {output} -f {input.f} -p {params.p} -g {params.g} -r1 {input.r1} -r2 {input.r2} -r3 {input.r3}
-#            conda deactivate
-#            """
+ rule DB_cluster:
+     input: 
+         i = f"{config['outputdir']['blastp_Groups_2']}",
+         f = f"{config['outputdir']['migale_data']}",
+         r1 = f"{config['ref_file']['r1']}",
+         r2 = f"{config['ref_file']['r2']}",
+         r3 = f"{config['ref_file']['r3']}"
 
-# Rule7_bis : Create proteins database by proteine
+     output:
+         directory(f"{config['outputdir2']}")
+    
+     params:
+         p = config['proteins'],
+         g = config['groups']
+    
+     shell: """
+            conda activate base
+            python3 {config[workdir]}/DB_cluster.py -i {input.i}/groupes -o {output} -f {input.f} -p {params.p} -g {params.g} -r1 {input.r1} -r2 {input.r2} -r3 {input.r3}
+            conda deactivate
+            """
+
+## Rule8 : Create proteins database by proteine
 rule DB_cluster:
     input: 
         i = f"{config['outputdir']['blastp_Groups_2']}",
@@ -238,4 +219,4 @@ rule DB_cluster:
            """ 
 
 
-""" Step11 : go to clustering snakefile """
+""" go to clustering snakefile """
