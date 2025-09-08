@@ -196,27 +196,5 @@ rule abondance_genus:
             conda deactivate
             """
 
-## Rule8 : Create proteins database by proteine
-rule DB_cluster:
-    input: 
-        i = f"{config['outputdir']['blastp_Groups_2']}",
-        f = f"{config['outputdir']['migale_data']}",
-        r1 = f"{config['ref_file']['r1']}",
-        r2 = f"{config['ref_file']['r2']}",
-        r3 = f"{config['ref_file']['r3']}"
 
-    output:
-        directory(f"{config['outputdir2_bis']}")
-    
-    params:
-        p = config['proteins'],
-        g = config['groups']
-    
-    shell: """
-           conda activate base
-           python3 {config[workdir]}/DB_cluster_byProt.py -i {input.i}/groupes -o {output} -f {input.f} -p {params.p} -g {params.g} -r1 {input.r1} -r2 {input.r2} -r3 {input.r3}
-           conda deactivate
-           """ 
-
-
-""" go to clustering snakefile """
+""" go to 3_clustering snakefile """
