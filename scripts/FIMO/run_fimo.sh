@@ -1,9 +1,15 @@
-#
-# Search for TIR motifs in all genomes selected by the variable FILTER, using the fimo algorithm from the meme suite
-# The genomic fasta need to be still gzipped, as it is a condition triggering the search
-#
-# Need to be executed in the folder ~/pgba_work/sebastien/tetPPR/TIRdetections
+#!/bin/bash
 
+#################################################################################################################################
+# ## Notes 
+
+"""  Search for TIR motifs in all genomes selected by the variable FILTER, using the fimo algorithm from the meme suite """
+
+# Load script : 
+#  1 - launch script twice, one for normal species name and then for unamed species 'sp. XXX'
+#  2 - same script is launched for RPP (tet) and IME_Rho_tet (TetMGE) replacing in FILTER argument
+
+################################################################################################################################
 
 
 # check numbers of arguments
@@ -12,10 +18,12 @@ if [ "$#" -ne 4 ]; then
   exit 1
 fi
 
-directory=$1    # /home/osidibe/work/PPR_MGEproject/Fimo/fimo_newID
-inputdir=$2     # /work_projet/isp-pgba/sebastien/tetPPR/Assemblies
-outputdir=$3    # /work_projet/isp-pgba/ouleye/PPR_MGEproject/fimo
-refseqTable=$4  # /home/osidibe/work/PPR_MGEproject/snakemakes/clustering_by_prot_3_2025Article/RefseqFINAL3.csv
+directory=$1    
+inputdir=$2     
+outputdir=$3   
+refseqTable=$4 
+
+
 # filter data about groupe and analyse table line by line
 FILTER="Tet"
 IFS=$'\n'
@@ -24,19 +32,19 @@ IFS=$'\n'
 # conda activate meme-5.5.7
 
 #search in csv file line which contains filter, extract interest columns and stock data in vals
-# for vals in `grep $FILTER $refseqTable | cut -d "," -f 2,3,9,21,22`; do
-for vals in `grep $FILTER $refseqTable | grep " sp. " | cut -d "," -f 2,3,9,21,22`; do # process only unamed species: 'sp. XXX' 
+for vals in `grep $FILTER $refseqTable | cut -d "," -f 2,3,9,21,22`; do
+# for vals in `grep $FILTER $refseqTable | grep " sp. " | cut -d "," -f 2,3,9,21,22`; do # process only unamed species: 'sp. XXX' 
 
  #extract accession genome and species name
  ass=`echo $vals | cut -d ',' -f 1`
-#  species=`echo $vals | cut -d ',' -f 2| cut -d " " -f 1,2 | tr " " "_"`  
- species=`echo $vals | cut -d ',' -f 2| tr " " "_"`  # without the 'cut -d " " -f 1,2' to process unamed species: 'sp. XXX' 
+ species=`echo $vals | cut -d ',' -f 2| cut -d " " -f 1,2 | tr " " "_"`  
+#  species=`echo $vals | cut -d ',' -f 2| tr " " "_"`  # without the 'cut -d " " -f 1,2' to process unamed species: 'sp. XXX' 
  
 
 
- ##### dezip fisrt if necessary
+ ##### dezip assembli files fisrt if necessary
 
-#  if [ -e "$inputdir/g_Tet/$species/$ass/${ass}_genomic.fna.gz" ]; then
+#   if [ -e "$inputdir/g_Tet/$species/$ass/${ass}_genomic.fna.gz" ]; then
 #   echo dezip process of $ass in $species
 #   gzip -d "$inputdir/g_Tet/$species/$ass/${ass}_genomic.fna.gz"
 
@@ -58,7 +66,6 @@ for vals in `grep $FILTER $refseqTable | grep " sp. " | cut -d "," -f 2,3,9,21,2
   if ! [[ -e "$inputdir/g_Tet/$species/$ass/${ass}_genomic.fna" ]];then
 
    echo fna for $ass does not exist in $species >> $outputdir/run_fimo.out
-
 
 
   fi
