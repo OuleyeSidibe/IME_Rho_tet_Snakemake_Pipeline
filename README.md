@@ -1,11 +1,13 @@
 # IME_Rho_tet Snakemake Pipeline
 
-**Bioinformatic pipeline of IME_Rho_tet diversity and distribution in human and animal bacterial gut**
+**Bioinformatic pipeline of IME_Rho_tet with snakmeake run in Migale, a high-performance computing (HPC) clusters manage by Sun Grid Engine (SGE)  ** 
 
+[![Migale 🧬](https://img.shields.io/badge/Migale-Cluster-blue?logo=data:image/svg+xml;base64,)](https://migale.inrae.fr/cluster)
 ![Snakemake](https://img.shields.io/badge/Snakemake-8.15.1-yellow)
 ![Python](https://img.shields.io/badge/Python-3.9%2B-informational?logo=python)
 ![Conda](https://img.shields.io/badge/Conda-22.11.1-green)
 ![Bash](https://img.shields.io/badge/Bash-5.2-violet)
+
 
 ---
 
@@ -55,6 +57,9 @@ IME_Rho_tet_pipeline/
 └── README.md
 
 
+##  Instructions 
+1. 
+
 
 ## Contact
 Created and maintained by Ouléye Sidibé
@@ -63,8 +68,10 @@ Questions or Feature requests ? Open an ![issue](https://github.com/OuleyeSidibe
 
 
 ## Citation
+If you use  IME_Rho_tet Snakemake Pipeline in your work, please cite: .....
+
 
 ## License
-This project is licensed under the GNU General Pu
+This project is licensed under the GNU General Public License v3.0 (GPL-3.0).
 
 ## 
