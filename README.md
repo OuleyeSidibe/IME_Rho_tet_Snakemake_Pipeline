@@ -35,8 +35,6 @@ The pipeline automates all steps up to protein clustering and includes to ensuri
    - TIR detection : Clustal W, FIMO MEME Suite, CD-HIT, BLASTn  
    - Integration site : BLASTn, nr
 
-5. **Host–microbiota association profiling** : CIRCOS
-
 ---
 
 
