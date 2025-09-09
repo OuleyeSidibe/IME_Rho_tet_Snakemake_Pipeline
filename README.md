@@ -11,10 +11,12 @@
 
 ---
 
+
 ## Overview
 This repository contains the **Snakemake Pipeline** developed for the analysis of IME_Rho_tet element carrying _tet(W)_ and _tet(32)_ genes, focusing on their diversity and distribution in bacterial gut genomes from human and animal hosts.
 
 The pipeline automates all steps up to protein clustering and includes to ensuring full reproducibility and scalability
+
 
 ---
 
@@ -33,6 +35,7 @@ The pipeline automates all steps up to protein clustering and includes to ensuri
 5. **Host–microbiota association profiling** : CIRCOS
 
 ---
+
 
 ## Directory Structure
 
@@ -56,20 +59,26 @@ IME_Rho_tet_pipeline/
 
 └── README.md
 
+---
 
 
 ## 🧾 Instructions
 
 Before executing the workflow, please follow these guidelines:
 
-1. ⚙️ Use **Conda** for environment management to ensure proper installation of Python dependencies and the **Snakemake** package.  
-2. 📂 Execute the **Snakefiles** sequentially, respecting the pipeline order (**step 1 → step 2 → step 3**).  
-3. 📌 Always navigate to the designated **working directory** prior to workflow execution.  
+1. ⚙️ Use **Conda** for environment management to ensure proper installation of Python dependencies and the **Snakemake** package.
+   
+2. 📂 Execute the **Snakefiles** sequentially, respecting the pipeline order (**step 1 → step 2 → step 3**).
+   
+3. 📌 Always navigate to the designated **working directory** prior to workflow execution.
+   
 4. 🛠️ Adjust the **file and script directory paths** in the configuration file to reflect your working environment.  
 
+---
 
 
 ## Contact
+
 Created and maintained by Ouléye Sidibé
 
 Questions or Feature requests ? Open an ![issue](https://github.com/OuleyeSidibe/IME_Rho_tet_Snakemake_Pipeline/issues/new) or contact ouleyehelena@gmail.com
@@ -79,7 +88,7 @@ Questions or Feature requests ? Open an ![issue](https://github.com/OuleyeSidibe
 If you use  IME_Rho_tet Snakemake Pipeline in your work, please cite: .....
 
 
+
 ## License
 This project is licensed under the GNU General Public License v3.0 (GPL-3.0).
 
-## 
