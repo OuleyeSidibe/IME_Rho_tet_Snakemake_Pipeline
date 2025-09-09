@@ -1,6 +1,9 @@
 # IME_Rho_tet Snakemake Pipeline
 
-**Bioinformatic pipeline of IME_Rho_tet with snakemake run in a high-performance computing (HPC) clusters execute by Sun Grid Engine (SGE) in Migale plateforme** 
+
+**Bioinformatic pipeline of IME_Rho_tet with snakemake run in a high-performance computing (HPC) clusters execute by Sun Grid Engine (SGE) in Migale plateforme.** 
+
+
 
 [![Migale](https://img.shields.io/badge/Migale-Cluster-red)](https://migale.inrae.fr/cluster)
 ![Snakemake](https://img.shields.io/badge/Snakemake-8.15.1-yellow)
