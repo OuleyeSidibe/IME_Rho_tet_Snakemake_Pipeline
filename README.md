@@ -1,6 +1,6 @@
 # IME_Rho_tet Snakemake Pipeline
 
-**Bioinformatic pipeline of IME_Rho_tet with snakmeake run in Migale, a high-performance computing (HPC) clusters manage by Sun Grid Engine (SGE)** 
+**Bioinformatic pipeline of IME_Rho_tet with snakemake run in a high-performance computing (HPC) clusters execute by Sun Grid Engine (SGE) in Migale plateforme** 
 
 [![Migale](https://img.shields.io/badge/Migale-Cluster-red)](https://migale.inrae.fr/cluster)
 ![Snakemake](https://img.shields.io/badge/Snakemake-8.15.1-yellow)
@@ -57,8 +57,16 @@ IME_Rho_tet_pipeline/
 └── README.md
 
 
-##  Instructions 
-1. 
+
+## 🧾 Instructions
+
+Before executing the workflow, please follow these guidelines:
+
+1. ⚙️ Use **Conda** for environment management to ensure proper installation of Python dependencies and the **Snakemake** package.  
+2. 📂 Execute the **Snakefiles** sequentially, respecting the pipeline order (**step 1 → step 2 → step 3**).  
+3. 📌 Always navigate to the designated **working directory** prior to workflow execution.  
+4. 🛠️ Adjust the **file and script directory paths** in the configuration file to reflect your working environment.  
+
 
 
 ## Contact
