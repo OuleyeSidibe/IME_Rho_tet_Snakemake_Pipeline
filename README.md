@@ -2,7 +2,7 @@
 
 **Bioinformatic pipeline of IME_Rho_tet with snakmeake run in Migale, a high-performance computing (HPC) clusters manage by Sun Grid Engine (SGE)** 
 
-[![Migale](https://img.shields.io/badge/Migale-Cluster-red?logo=data:image/svg+xml;base64,)](https://migale.inrae.fr/cluster)
+[![Migale](https://img.shields.io/badge/Migale-Cluster-red)](https://migale.inrae.fr/cluster)
 ![Snakemake](https://img.shields.io/badge/Snakemake-8.15.1-yellow)
 ![Python](https://img.shields.io/badge/Python-3.9%2B-informational?logo=python)
 ![Conda](https://img.shields.io/badge/Conda-22.11.1-green)
