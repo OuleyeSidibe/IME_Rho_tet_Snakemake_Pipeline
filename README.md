@@ -20,7 +20,7 @@ The pipeline automates all steps up to protein clustering and includes to ensuri
 
 1. **Import RefSeq Genomic Data** : Migale platform, NCBI FTP taxonomy
 
-2. **In silico search of IME_Rho_tet** : BLASTp, BLASTn, GenoFiga
+2. **In silico search of IME_Rho_tet** : BLASTp, BLASTn, GenoFig
 
 3. **Protein clustering** : ResFinder, CD-HIT, BLASTp, SankeyMATIC
 
@@ -46,7 +46,7 @@ IME_Rho_tet_pipeline/
 ├── Picture/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Pipeline picture
 
 
-├── scripts/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Python and bash scripts use in Snakemake
+├── scripts/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Python and bash scripts use in Snakemake and FIMO
 
 
 ├── Snakefiles/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Snakefiles for pipeline steps (import_data, IN_silico IME_Rho_tet, Proteins Clustering)
@@ -58,7 +58,8 @@ IME_Rho_tet_pipeline/
 
 ## Contact
 Created and maintained by Ouléye Sidibé
-Questions or Feature requests ? Open an issue or contact ouleyehelena@gmail.com
+
+Questions or Feature requests ? Open an ![issue](https://github.com/OuleyeSidibe/IME_Rho_tet_Snakemake_Pipeline/issues/new) or contact ouleyehelena@gmail.com
 
 
 ## Citation
