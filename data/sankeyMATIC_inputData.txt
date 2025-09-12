@@ -1,106 +1,165 @@
-Tet32_1_EU722333_C4. [60] REL_C0 #63EDEE
+// SankeyMATIC diagram inputs - Saved: 08/09/2025 14:53:28
+// https://sankeymatic.com/build/
+
+// === Nodes and Flows ===
+
+Tet(32) [60] REL_C0 #63EDEE
 REL_C0 [60] REC_C0 #63EDEE
-REC_C0 [60] IME_Rho_Tet #63EDEE
-Tet32_1_EU722333_C4. [99] REL_C2 #63EDEE
+REC_C0 [60] IME_Rho_tet #63EDEE
+Tet(32) [99] REL_C2 #63EDEE
 REL_C2 [99] REC_C0 #63EDEE
-REC_C0 [99] IME_Rho_Tet #63EDEE
-TetO/32/O_1_JQ740052_C12. [2] REL_C0 #63EDEE
+REC_C0 [99] IME_Rho_tet #63EDEE
+Tet(O/32/O)_1 [2] REL_C0 #63EDEE
 REL_C0 [2] REC_C0 #63EDEE
-REC_C0 [2] IME_Rho_Tet #63EDEE
-TetO/32/O_5_FP929050_C35. [4] REL_C0 #63EDEE
+REC_C0 [2] IME_Rho_tet #63EDEE
+Tet(O/32/O)_5 [4] REL_C0 #63EDEE
 REL_C0 [4] REC_C0 #63EDEE
-REC_C0 [4] IME_Rho_Tet #63EDEE
-TetO/32/O_5_FP929050_C35. [1] REL_C3 #63EDEE
+REC_C0 [4] IME_Rho_tet #63EDEE
+Tet(O/32/O)_5 [1] REL_C3 #63EDEE
 REL_C3 [1] REC_C0 #63EDEE
-REC_C0 [1] IME_Rho_Tet #63EDEE
-TetO_1_M18896_C2. [2] REL_C0 #63EDEE
+REC_C0 [1] IME_Rho_tet #63EDEE
+Tet(O) [2] REL_C0 #63EDEE
 REL_C0 [2] REC_C0 #63EDEE
-REC_C0 [2] IME_Rho_Tet #63EDEE
-TetO_1_M18896_C2. [4] REL_C2 #63EDEE
+REC_C0 [2] IME_Rho_tet #63EDEE
+Tet(O) [4] REL_C2 #63EDEE
 REL_C2 [4] REC_C0 #63EDEE
-REC_C0 [4] IME_Rho_Tet #63EDEE
-TetW/O_new_C32. [1] REL_C0 #63EDEE
+REC_C0 [4] IME_Rho_tet #63EDEE
+Tet(W/O)_newVar1 [1] REL_C0 #63EDEE
 REL_C0 [1] REC_C0 #63EDEE
-REC_C0 [1] IME_Rho_Tet #63EDEE
-TetW/O_new_C32. [1] REL_C3 #63EDEE
+REC_C0 [1] IME_Rho_tet #63EDEE
+Tet(W/O)_newVar1 [1] REL_C3 #63EDEE
 REL_C3 [1] REC_C0 #63EDEE
-REC_C0 [1] IME_Rho_Tet #63EDEE
-TetW/O_new_C33. [2] REL_C0 #63EDEE
+REC_C0 [1] IME_Rho_tet #63EDEE
+Tet(W/O)_newVar2 [2] REL_C0 #63EDEE
 REL_C0 [2] REC_C0 #63EDEE
-REC_C0 [2] IME_Rho_Tet #63EDEE
-TetW/O_new_C33. [1] REL_C2 #63EDEE
+REC_C0 [2] IME_Rho_tet #63EDEE
+Tet(W/O)_newVar2 [1] REL_C2 #63EDEE
 REL_C2 [1] REC_C0 #63EDEE
-REC_C0 [1] IME_Rho_Tet #63EDEE
-TetW/O_new_C34. [1] REL_C0 #63EDEE
+REC_C0 [1] IME_Rho_tet #63EDEE
+Tet(W/32)_newVar1 [1] REL_C0 #63EDEE
 REL_C0 [1] REC_C0 #63EDEE
-REC_C0 [1] IME_Rho_Tet #63EDEE
-TetW_1_DQ060146_C1. [60] REL_C0 #63EDEE
+REC_C0 [1] IME_Rho_tet #63EDEE
+Tet(W) [60] REL_C0 #63EDEE
 REL_C0 [60] REC_C0 #63EDEE
-REC_C0 [60] IME_Rho_Tet #63EDEE
-TetW_1_DQ060146_C1. [2] REL_C17 #63EDEE
+REC_C0 [60] IME_Rho_tet #63EDEE
+Tet(W) [2] REL_C17 #63EDEE
 REL_C17 [2] REC_C0 #63EDEE
-REC_C0 [2] IME_Rho_Tet #63EDEE
-TetW_1_DQ060146_C1. [10] REL_C2 #63EDEE
+REC_C0 [2] IME_Rho_tet #63EDEE
+Tet(W) [10] REL_C2 #63EDEE
 REL_C2 [10] REC_C0 #63EDEE
-REC_C0 [10] IME_Rho_Tet #63EDEE
+REC_C0 [10] IME_Rho_tet #63EDEE
 
-Tet109_new_C10. [1] REL_C1 #D12020
+RPP_new1 [1] REL_C1 #D12020
 REL_C1 [1] REC_C1 #D12020
-REC_C1 [1] IME_Rho_Tet #D12020
-Tet109_new_C10. [3] REL_C4 #D12020
+REC_C1 [1] IME_Rho_tet #D12020
+RPP_new1 [3] REL_C4 #D12020
 REL_C4 [3] REC_C1 #D12020
-REC_C1 [3] IME_Rho_Tet #D12020
-Tet109_new_C10. [11] REL_C5 #D12020
+REC_C1 [3] IME_Rho_tet #D12020
+RPP_new1 [11] REL_C5 #D12020
 REL_C5 [11] REC_C1 #D12020
-REC_C1 [11] IME_Rho_Tet #D12020
-Tet32_1_EU722333_C4. [1] REL_C4 #D12020
+REC_C1 [11] IME_Rho_tet #D12020
+Tet(32) [1] REL_C4 #D12020
 REL_C4 [1] REC_C1 #D12020
-REC_C1 [1] IME_Rho_Tet #D12020
-TetW/O_new_C33. [2] REL_C1 #D12020
+REC_C1 [1] IME_Rho_tet #D12020
+Tet(W/O)_newVar2 [2] REL_C1 #D12020
 REL_C1 [2] REC_C1 #D12020
-REC_C1 [2] IME_Rho_Tet #D12020
-TetW/O_new_C33. [1] REL_C5 #D12020
+REC_C1 [2] IME_Rho_tet #D12020
+Tet(W/O)_newVar2 [1] REL_C5 #D12020
 REL_C5 [1] REC_C1 #D12020
-REC_C1 [1] IME_Rho_Tet #D12020
-TetW_1_DQ060146_C1. [125] REL_C1 #D12020
+REC_C1 [1] IME_Rho_tet #D12020
+Tet(W) [125] REL_C1 #D12020
 REL_C1 [125] REC_C1 #D12020
-REC_C1 [125] IME_Rho_Tet #D12020
-TetW_1_DQ060146_C1. [8] REL_C12 #D12020
+REC_C1 [125] IME_Rho_tet #D12020
+Tet(W) [8] REL_C12 #D12020
 REL_C12 [8] REC_C1 #D12020
-REC_C1 [8] IME_Rho_Tet #D12020
-TetW_1_DQ060146_C1. [1] REL_C23 #D12020
+REC_C1 [8] IME_Rho_tet #D12020
+Tet(W) [1] REL_C23 #D12020
 REL_C23 [1] REC_C1 #D12020
-REC_C1 [1] IME_Rho_Tet #D12020
-TetW_1_DQ060146_C1. [28] REL_C4 #D12020
+REC_C1 [1] IME_Rho_tet #D12020
+Tet(W) [28] REL_C4 #D12020
 REL_C4 [28] REC_C1 #D12020
-REC_C1 [28] IME_Rho_Tet #D12020
-TetW_1_DQ060146_C1. [32] REL_C5 #D12020
+REC_C1 [28] IME_Rho_tet #D12020
+Tet(W) [32] REL_C5 #D12020
 REL_C5 [32] REC_C1 #D12020
-REC_C1 [32] IME_Rho_Tet #D12020
-TetW_1_DQ060146_C1. [14] REL_C9 #D12020
+REC_C1 [32] IME_Rho_tet #D12020
+Tet(W) [14] REL_C9 #D12020
 REL_C9 [14] REC_C1 #D12020
-REC_C1 [14] IME_Rho_Tet #D12020
+REC_C1 [14] IME_Rho_tet #D12020
 
-Tet32_1_EU722333_C4. [1] REL_C7 #96BF14
+Tet(32) [1] REL_C7 #96BF14
 REL_C7 [1] REC_C2 #96BF14
-REC_C2 [1] IME_Rho_Tet #96BF14
-Tet32_2_EF626943_newVar_C11. [6] REL_C7 #96BF14
+REC_C2 [1] IME_Rho_tet #96BF14
+Tet(32)_newVar1 [6] REL_C7 #96BF14
 REL_C7 [6] REC_C2 #96BF14
-REC_C2 [6] IME_Rho_Tet #96BF14
-Tet32_2_EF626943_newVar_C29. [1] REL_C7 #96BF14
+REC_C2 [6] IME_Rho_tet #96BF14
+Tet(32)_newVar2 [1] REL_C7 #96BF14
 REL_C7 [1] REC_C2 #96BF14
-REC_C2 [1] IME_Rho_Tet #96BF14
-Tet95_new_C21. [2] REL_C26 #96BF14
+REC_C2 [1] IME_Rho_tet #96BF14
+RPP_new2 [2] REL_C26 #96BF14
 REL_C26 [2] REC_C2 #96BF14
-REC_C2 [2] IME_Rho_Tet #96BF14
-TetW_1_DQ060146_C1. [1] REL_C31 #96BF14
+REC_C2 [2] IME_Rho_tet #96BF14
+Tet(W) [1] REL_C31 #96BF14
 REL_C31 [1] REC_C2 #96BF14
-REC_C2 [1] IME_Rho_Tet #96BF14
+REC_C2 [1] IME_Rho_tet #96BF14
 
-TetW_1_DQ060146_C1. [4] REL_C11 #9467BD
-REL_C11 [4] REC_C3 #9467BD
-REC_C3 [4] IME_Rho_Tet #9467BD
+Tet(W) [4] REL_C11 #FF7F0E
+REL_C11 [4] REC_C3 #FF7F0E
+REC_C3 [4] IME_Rho_tet #FF7F0E
 
-TetW_1_DQ060146_C1. [4] REL_C6 #FF7F0E
-REL_C6 [4] REC_C4 #FF7F0E
-REC_C4 [4] IME_Rho_Tet #FF7F0E
+Tet(W) [4] REL_C6 #9467BD
+REL_C6 [4] REC_C4 #9467BD
+REC_C4 [4] IME_Rho_tet #9467BD
+
+// === Settings ===
+
+size w 1000
+ h 700
+margin l 5
+ r 5
+ t 5
+ b 15
+bg color #ffffff
+ transparent N
+node w 12
+ h 30.5
+ spacing 100
+ border 0
+ theme b
+ color #888888
+ opacity 1
+flow curvature 0.5
+ inheritfrom outside-in
+ color #999999
+ opacity 0.45
+layout order exact
+ justifyorigins N
+ justifyends N
+ reversegraph N
+ attachincompletesto nearest
+labels color #000000
+ hide N
+ highlight 0.2
+ fontface sans-serif
+ linespacing 0.2
+ relativesize 105
+ magnify 100
+labelname appears Y
+ size 19
+ weight 400
+labelvalue appears Y
+ fullprecision Y
+ position after
+ weight 700
+labelposition autoalign -1
+ scheme per_stage
+ first before
+ breakpoint 5
+value format ',.'
+ prefix ''
+ suffix ''
+themeoffset a 7
+ b 1
+ c 0
+ d 0
+meta mentionsankeymatic N
+ listimbalances Y
