@@ -1,0 +1,7 @@
+Ime_RhoTetW	TETW+TIR	TETW alone	Ime_RhoTet32	TET32+TIR	TET32 alone	Genomes no Tet
+human	157	273	182	108	27	20	6540
+cattle	2	9	2	0	0	0	229
+chicken	16	42	7	1	0	0	373
+pig	13	33	34	0	0	0	511
+other domestic	3	52	22	1	0	0	908
+other	1	15	16	2	0	0	890
