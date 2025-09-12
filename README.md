@@ -34,6 +34,11 @@ The pipeline automates all steps up to protein clustering ensuring full reproduc
    - TIR detection : Clustal W, FIMO MEME Suite, CD-HIT, BLASTn  
    - Integration site : BLASTn, nr
 
+5. **Sources analysis** : Excel, CIRCOS
+   
+7. **Statistical tests** : Chi-Square, R
+
+
 ---
 
 
@@ -46,7 +51,7 @@ IME_Rho_tet_pipeline/
 
 ├── data/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Example input datasets (e.g., rankedlineage.dmp/)
 
-├── scripts/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Python and bash scripts use in Snakemake and FIMO
+├── scripts/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Python and bash scripts use in Snakemake and FIMO - Bash and R use in source isolation and statistical tets
 
 ├── Snakefiles/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Snakefiles for pipeline steps (import_data, IN_silico IME_Rho_tet, Proteins Clustering)
 
