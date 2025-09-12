@@ -14,7 +14,7 @@
 ---
 
 
-## Overview
+## 🧭 Overview
 This repository contains the **Snakemake Pipeline** developed for the analysis of IME_Rho_tet element carrying _tet(W)_ and _tet(32)_ genes, focusing on their diversity and distribution in bacterial gut genomes from human and animal hosts.
 
 The pipeline automates all steps up to protein clustering ensuring full reproducibility and scalability
@@ -22,7 +22,7 @@ The pipeline automates all steps up to protein clustering ensuring full reproduc
 
 ---
 
-## Features
+## 🧩 Features
 
 1. **Import RefSeq Genomic Data** : Migale platform, NCBI FTP taxonomy
 
@@ -42,7 +42,7 @@ The pipeline automates all steps up to protein clustering ensuring full reproduc
 ---
 
 
-## Directory Structure
+## 📁 Directory Structure
 
 
 IME_Rho_tet_pipeline/
@@ -75,29 +75,19 @@ Before executing the workflow, please follow these guidelines:
 ---
 
 
-## Contact
+## 📬 Contact
 
 Created and maintained by Ouléye Sidibé
 
 Questions or Feature requests ? Open an ![issue](https://github.com/OuleyeSidibe/IME_Rho_tet_Snakemake_Pipeline/issues/new) or contact ouleyehelena@gmail.com
 
 
-## Citation
+## 📚 Citation
 If you use  IME_Rho_tet Snakemake Pipeline in your work, please cite: .....
 
 
 
-## License
+## 📝 License
 This project is licensed under the GNU General Public License v3.0 (GPL-3.0).
-
-
-# Project Title
-
-[![Overview](https://img.shields.io/badge/Overview-Project%20summary-blue?style=flat-square)](#overview)
-[![Features](https://img.shields.io/badge/Features-Highlights-%232ecc71?style=flat-square)](#features)
-[![Directory](https://img.shields.io/badge/Directory-structure-lightgrey?style=flat-square)](#directory-structure)
-[![Contact](https://img.shields.io/badge/Contact-Get%20in%20touch-orange?style=flat-square)](mailto:ton.email@exemple.com)
-[![Citation](https://img.shields.io/badge/Citation-How%20to%20cite-blueviolet?style=flat-square)](<URL-to-citation-or-DOI>)
-[![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 
 
