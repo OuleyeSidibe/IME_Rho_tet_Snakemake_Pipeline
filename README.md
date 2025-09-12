@@ -90,3 +90,14 @@ If you use  IME_Rho_tet Snakemake Pipeline in your work, please cite: .....
 ## License
 This project is licensed under the GNU General Public License v3.0 (GPL-3.0).
 
+
+# Project Title
+
+[![Overview](https://img.shields.io/badge/Overview-Project%20summary-blue?style=flat-square)](#overview)
+[![Features](https://img.shields.io/badge/Features-Highlights-%232ecc71?style=flat-square)](#features)
+[![Directory](https://img.shields.io/badge/Directory-structure-lightgrey?style=flat-square)](#directory-structure)
+[![Contact](https://img.shields.io/badge/Contact-Get%20in%20touch-orange?style=flat-square)](mailto:ton.email@exemple.com)
+[![Citation](https://img.shields.io/badge/Citation-How%20to%20cite-blueviolet?style=flat-square)](<URL-to-citation-or-DOI>)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
+
+
