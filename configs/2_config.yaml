@@ -1,28 +1,48 @@
-inputdir: /db/gb_bacteria/current/flat/
-outputdir: 
-  migale_data: /work_projet/isp-pgba/ouleye/PPR_MGEproject/migale_data_1
-  import_Data_1: /home/osidibe/work/PPR_MGEproject/snakemakes/import_Data_1
-  blastp_Groups_2: /work_projet/isp-pgba/ouleye/PPR_MGEproject/blastp_Groups_2
-workdir: /home/osidibe/work/PPR_MGEproject/snakemakes/blastp_Groups_2
-min_identity : 50
-min_coverage : 95
-TET : "\"Tet(W)\""
-proteins:
- - "\"Tet(W)\""
- - "\"protein=relaxase\""
- - "\"protein=recombinase\""
-MGE: 
-  protein=relaxase
-  protein=recombinase
-groups:
- - "\"g_TetMGE\""
- - "\"g_MGE\""
- - "\"g_Tet\""
+# ===== INPUT =====
+#  RefSeq / GenBank database
+
+inputdir: https://ftp.ncbi.nlm.nih.gov/genomes/all/
+
+# ===== INPUT aND OUTPUT DIRECTORIES =====
+outputdir:
+  migale_data: /path/of/download/data/from/refseq/
+  import_Data_1: /path/to/output/import_data
+  blastp_Groups_2: /path/to/output/blastp_result
+
+# Output directory for protein clustering
+outputdir2: /path/to/output/clustering_by_protein
+
+# Snakemake working directory
+workdir: /path/to/snakemake/workdir
+
+# ===== BLAST / FILTERING PARAMETERS =====
+min_identity: 50
+min_coverage: 95
 CDS_interval: 10
-outputdir2 :  /work_projet/isp-pgba/ouleye/PPR_MGEproject/clustering_by_prot_3
-ref_file :
-  r1 : /home/osidibe/work/PPR_MGEproject/snakemakes/clustering_3/ResFinder_PPR_Moz.fa
-  r2 : /home/osidibe/work/PPR_MGEproject/snakemakes/clustering_3/Relaxase_IME_RhoA2.fa
-  r3 : /home/osidibe/work/PPR_MGEproject/snakemakes/clustering_3/Recombinase_IME_RhoA2.fa
-report_1 : /home/osidibe/work/PPR_MGEproject/snakemakes/import_Data_1/dataReport_1.csv
-taxonomie_1 : /home/osidibe/work/PPR_MGEproject/snakemakes/import_Data_1/NCBI_taxoResume_2.csv
+
+# ===== PROTEINS / MGE =====
+TET: Tet(W)
+
+proteins:
+  - Tet(W)
+  - protein=relaxase
+  - protein=recombinase
+
+MGE:
+  - protein=relaxase
+  - protein=recombinase
+
+groups repository (TetMGE = IME_rho_tet, MGE= IMEç_Rho, Tet = RPP) :
+  - g_TetMGE
+  - g_MGE
+  - g_Tet
+
+# ===== REFERENCE FILES =====
+ref_file:
+  r1: /path/to/reference/ResFinder_PPR_Moz.fa
+  r2: /path/to/reference/Relaxase_IME_RhoA2.fa
+  r3: /path/to/reference/Recombinase_IME_RhoA2.fa
+
+# ===== REPORTS / METADATA =====
+report_1: /path/to/metadata/dataReport_1.csv
+taxonomie_1: /path/to/NCBI/taxonomie/file
