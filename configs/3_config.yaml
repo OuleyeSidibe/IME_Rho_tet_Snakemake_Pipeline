@@ -1,18 +1,32 @@
-workdir : /home/osidibe/work/PPR_MGEproject/snakemakes/clustering_by_prot_3_2025Article
-outputdir : /work_projet/isp-pgba/ouleye/PPR_MGEproject/clustering_by_prot_3_2025Article
-inputdir : /work_projet/isp-pgba/ouleye/PPR_MGEproject/blastp_Groups_2/groupes
-faa_dir : /work_projet/isp-pgba/ouleye/PPR_MGEproject/migale_data_1
-refseq_t : /home/osidibe/work/PPR_MGEproject/snakemakes/blastp_Groups_2/RefseqFINALE.csv
+# General configuration for the Protein clustering
+# Paths are generic for public use
+
+# Working directories
+workdir: /path/to/workdir
+outputdir: /path/to/outputdir
+inputdir: /path/to/inputdir
+faa_dir: /path/to/faa_dir
+
+# Reference file
+refseq_t: /path/to/RefseqFINALE.csv
+
+# Clustering threshold
 threshold: 0.9
+
+# Proteins of interest
 proteins:
- - "\"Tet(W)\""
- - "\"protein=relaxase\""
- - "\"protein=recombinase\""
+  - Tet(W)
+  - protein=relaxase
+  - protein=recombinase
+
+# Simplified protein names
 prot_name:
- - TET
- - REL
- - REC
-groups :
- - "\"g_TetMGE\""
- - "\"g_MGE\""
- - "\"g_Tet\""
+  - TET
+  - REL
+  - REC
+
+# Groups name
+groups:
+  - g_TetMGE
+  - g_MGE
+  - g_Tet
