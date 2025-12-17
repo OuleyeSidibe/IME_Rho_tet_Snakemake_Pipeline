@@ -1,3 +1,0 @@
-inputdir: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/***/***/***/accessionv1_translated_cds.faa	
-outputdir: /path/to/project/output/
-workdir: /path/to/project/workdir/
