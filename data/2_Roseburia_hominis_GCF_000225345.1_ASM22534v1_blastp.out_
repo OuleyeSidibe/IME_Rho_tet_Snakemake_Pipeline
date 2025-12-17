@@ -1,0 +1,6 @@
+Query,Subject,Pident,cds_position,genome_acc
+protein=recombinase,lcl|NC_015977.1_prot_WP_002594230.1_2003,92.593,2003,NC_015977
+protein=relaxase,lcl|NC_015977.1_prot_WP_014080221.1_2008,95.911,2008,NC_015977
+Tet(W),lcl|NC_015977.1_prot_WP_014078528.1_322,99.687,322,NC_015977
+protein=relaxase,lcl|NC_015977.1_prot_WP_014078531.1_327,100.0,327,NC_015977
+protein=recombinase,lcl|NC_015977.1_prot_WP_014078536.1_332,100.0,332,NC_015977
