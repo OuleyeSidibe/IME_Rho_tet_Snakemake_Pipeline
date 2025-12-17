@@ -32,7 +32,7 @@ MGE:
   - protein=relaxase
   - protein=recombinase
 
-groups repository (TetMGE = IME_rho_tet, MGE= IMEç_Rho, Tet = RPP) :
+groups repository (TetMGE = IME_Rho_tet, MGE= IME_Rho, Tet = RPP) :
   - g_TetMGE
   - g_MGE
   - g_Tet
