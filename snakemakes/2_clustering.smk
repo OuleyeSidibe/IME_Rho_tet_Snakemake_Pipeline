@@ -1,14 +1,13 @@
-## Run in qlogin
-# qlogin -q long.q -pe thread 30
+## ssh connexion
 
-## Execute snakemake environnement
+## Execute your snakemake environnement
 # conda activate snakemake-8.15.1
 
 ## Snk script execution in snakefile repository
 # snakemake -s <<screening.smk>> -c30
 
 
-## use conda environment by load profile.d/conda.sh
+## use your conda env
 shell.executable("/bin/bash")
 shell.prefix("source /usr/local/genome/Anaconda3/etc/profile.d/conda.sh;")
 
@@ -19,7 +18,7 @@ import os
 
 # ## Configure yaml file
 
-configfile: "config.yaml"
+configfile: "2_config.yaml"
 
 
 """ Note : To launch snk file, positionning in workdir repository """
