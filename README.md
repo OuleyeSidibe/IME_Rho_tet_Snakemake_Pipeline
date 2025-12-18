@@ -104,7 +104,7 @@ Exemple : Refseq accession (GCF*) annotations of tree strains
      
      
 ### 2️⃣ In Silico Search of IME_Rho_tet
-- **Snakefile:** `1_InSilico_IME_Rho_tet.smk`
+**Snakefile:** `1_InSilico_IME_Rho_tet.smk`
    - config : configs/1_config.yaml
    - scripts :  available in scripts repository
 
@@ -122,7 +122,7 @@ Exemple : Refseq accession (GCF*) annotations of tree strains
 *Example files are available in the `data/outputs` repository.*
 
 - BLASTp result tables after analysis and filtering  
-- Summary table with metadata  (separator: `,`)
+- Summary table with with IME_Rho_tet in silico search  (separator: `,`)
 
 
   
