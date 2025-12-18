@@ -1,26 +1,26 @@
 # ===== INPUT =====
 #  RefSeq / GenBank FTP path
 
-inputdir: https://ftp.ncbi.nlm.nih.gov/genomes/all/
+inputdir: input directory with genbank annotation files
 
 # ===== INPUT aND OUTPUT DIRECTORIES =====
 outputdir:
-  migale_data: input directory with refseq annotation download of translated cds
-  import_Data_1: /path/to/output/import_data
-  blastp_Groups_2: /path/to/output/blastp_result
+  migale_data: input directory with refseq annotation download files of translated cds
+  import_Data_1: output directory with report fle for downloaded Refseq data
+  blastp_Groups_2: output directory for blastp results
 
 # Output directory for protein clustering
-outputdir2: /path/to/output/clustering_by_protein
+outputdir2: output directory of PPR REL and REC create database for clustering step
 
 # Snakemake working directory
-workdir: /path/to/snakemake/workdir
+workdir: snakemakes working directory
 
 # ===== BLAST / FILTERING PARAMETERS =====
 min_identity: 50
 min_coverage: 95
 CDS_interval: 10
 
-# ===== PROTEINS / MGE =====
+# ===== Proteins parameters for blastp resulst analysis =====
 TET: Tet(W)
 
 proteins:
@@ -32,17 +32,17 @@ MGE:
   - protein=relaxase
   - protein=recombinase
 
-groups repository (TetMGE = IME_Rho_tet, MGE= IME_Rho, Tet = RPP) :
+groups repository (TetMGE = IME_Rho_tet genomes, MGE= IME_Rho genomes, Tet = RPP genomes) :
   - g_TetMGE
   - g_MGE
   - g_Tet
 
-# ===== REFERENCE FILES =====
+# ===== REFERENCE FILES for database creation =====
 ref_file:
-  r1: /path/to/reference/ResFinder_PPR_Moz.fa
-  r2: /path/to/reference/Relaxase_IME_RhoA2.fa
-  r3: /path/to/reference/Recombinase_IME_RhoA2.fa
+  r1: PPR reference sequence from resfinder database
+  r2: canonical sequence reference of relaxase
+  r3: canonical sequence reference of recombinase
 
 # ===== REPORTS / METADATA =====
 report_1: /path/to/metadata/dataReport_1.csv
-taxonomie_1: /path/to/NCBI/taxonomie/file
+taxonomie_1: NCBI taxonomie file for bacillota and actinomycetota data retravaillé
