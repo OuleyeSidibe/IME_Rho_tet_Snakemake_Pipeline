@@ -162,25 +162,25 @@ Exemple : Refseq accession (GCF*) annotations of tree strains
 1. TIR Motif Detection
 
    **Inputs:**  
-      - TIR motif file : `scripts/FIMO/TIR_model.meme`
+   - TIR motif file : `scripts/FIMO/TIR_model.meme`
         
-      - Scripts:  
+   - Scripts:  
       1. `1_run_fimo.sh` – Search TIR motifs using `/scripts/FIMO/TIR_model.meme`  
       2. `2_parse_TIRs.py` – Extract TIRs for IME_Rho_tet and RPP(tet) groups  
       3. `3_add_TIRs.py` – Add TIRs to summary table
       
          
    **Outputs:**
-      *Example files are available in the `data/outputs` repository.*
-      - Summary table with detected TIR motif and their coordinate : `data/outputs/Summary_table_3`
+   *Example files are available in the `data/outputs` repository.*
+   - Summary table with detected TIR motif and their coordinate : `data/outputs/Summary_table_3`
 
 
 
 2. Integration Site Analysis
    
     **Inputs:** 
-      - RefSeq downloaded files : `data/inputs/GCF_000225345.1_ASM22534v1_genomic.fna`
-      - Scripts:  
+    - RefSeq downloaded files : `data/inputs/GCF_000225345.1_ASM22534v1_genomic.fna`
+    - Scripts:  
       1. `1_integrationSite_IME_Rho_tet.py` – Extract 150 bp flanking TIRs  
       2. `2_clustering_blastn.sh` + `blastn_analyse.py` – Cluster sequences & search homologs in nr  
       3. `3_Refseq_GB_remote.py` – Annotate homologous sequences using RefSeq/GenBank  
