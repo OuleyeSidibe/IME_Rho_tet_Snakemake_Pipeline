@@ -24,7 +24,7 @@ The pipeline automates all steps up to protein clustering ensuring full reproduc
 
 ## 🧩 Features
 
-1. **Import RefSeq Genomic Data** : Migale platform, NCBI FTP taxonomy
+1. **Download RefSeq Genomic Data** : Migale platform, NCBI FTP taxonomy
 
 2. **In silico search of IME_Rho_tet** : BLASTp, BLASTn, GenoFig
 
@@ -71,6 +71,59 @@ Before executing the workflow, please follow these guidelines:
 3. 📌 Always navigate to the designated **working directory** prior to workflow execution.
    
 4. 🛠️ Adjust the **file and script directory paths** in the configuration file to reflect your working environment.  
+
+---
+
+
+
+## Pipeline launch
+
+
+1. **Download RefSeq Genomic Data**
+   
+   Download amino acide translated files of Bacillota and actinomycetota phyla from Refseq database
+ 
+   - ex. Roseburia hominis GCF_000225345.1_ASM22534v1 file  :  https://ftp.ncbi.nlm.nih.gov/genomes/refseq/bacteria/all/GCF/000/225/345/GCF_000225345.1_ASM22534v1_translated_cds.faa
+   - input file ex : /data/Roseburia_hominis_GCF_000225345.1_ASM22534v1_translated_cds.fa
+     
+
+2. **In silico search of IME_Rho_tet**
+   
+   snk file : 1_InSilico_IME_Rho_tet.smk
+   config : configs/1_config.yaml #adapt reposotories
+
+    - input :
+           . query file : data/Query_TET_REL_REC.fa
+           . Translated files
+           . Download genbank file to extract metadata : https://ftp.ncbi.nlm.nih.gov/genomes/refseq/bacteria/all/GCF/000/225/345/GCF_000225345.1_ASM22534v1_genomic.gbff.faa 
+    - output :
+           . blastp result table ex : data/2_Roseburia_hominis_GCF_000225345.1_ASM22534v1_blastp.out
+           . Summary table with metaData ex : data/2_Summary_table_Roseburia_hominis ; sep=','
+               
+      
+3. **Protein clustering**
+
+   snk file : 2_clustering.smk
+   config file : configs/2_config.yaml
+    - output : /data/3_summary_table_with_clusteringDATA
+
+   
+4. **Boundaries and integration site characterization**
+
+   1 - TIR motif search in genomes
+   
+      . scripts : . 1_run_fimo.sh first to search TIR motif of model file  (/scripts/FIMO/TIR_model.meme)
+                  . 2_parse_TIRs.py for IME_Rho_tet and RPP(tet) groupes to extract TIR which match with RPP positions and orientations in 6kb around
+                  . 3_add_TIRs.py then add TIRs data to summary table
+   
+      . output : Summary table with TIRsequence and coordinate ex : /data/4_summary_table_with_TIR
+
+   2 - Intégration site
+
+      . scripts : - 1_integrationSite_IME_Rho_tet.py : first extact 150 pb of sequences flanking TIRS to reconstruct genetic sequence carrying intégration site
+                  - 2_clustering_blastn.sh and blastn_analyse.py: sequences clustering then blast again nr database for homologie search
+                  - 3_Refseq_GB_remote.py : Homologous sequences annotated using RefSeq/GenBank 
+
 
 ---
 
