@@ -109,7 +109,7 @@ Exemple : Refseq accession (GCF*) annotations of tree strains
      
 ### 2️⃣ In Silico Search of IME_Rho_tet
 **Snakefile:** `1_InSilico_IME_Rho_tet.smk`
-   - config : configs/1_config.yaml
+   - config : `configs/1_config.yaml`
    - scripts :  available in scripts repository
 
 **Inputs:**  
@@ -120,22 +120,34 @@ Exemple : Refseq accession (GCF*) annotations of tree strains
 - RefSeq downloaded files : `data/inputs/GCF_000225345.1_ASM22534v1_translated_cds.fa` and `data/inputs/GCF_000225345.1_ASM22534v1_genomic_gbff`
 - Query files for truncated sequences :  `data/query_t.fa` 
 - Reference files for PPR (r1), relaxase(r2), and recombinase(r3) :  `data/inputs/r1` `data/inputs/r2` `data/inputs/r3`
-
+- Created database files of PPR, REL and REC proteins sequences
+- NCBI taxonomie file : `data/rankedlineage_head.dmp`
+- NCBI taxonomie reworked for _Bacillota_ and _Actinomycetota_ : `data/inputs/taxonomie_bacillota_actinomycetota`
+  
 
 **Outputs:**   
 *Example files are available in the `data/outputs` repository.*
 
 - BLASTp result tables after analysis and filtering : `data/outputs/Summary_table_1`   
-- Summary table with metadata  (separator: `,`) : `data/outputs/Summary_table_2`
+- Summary table with metadata  (separator: `,`) : `data/outputs/Summary_table_1`
 
 
   
 ### 3️⃣ Protein Clustering
-- **Snakefile:** `2_clustering.smk`  
-- config file : configs/2_config.yaml
+**Snakefile:** `2_clustering.smk`  
+   - config file : `configs/2_config.yaml`
+
+**Inputs:**  
+*Example files are available in the `data/inputs` repository.*
+
+- Created database fasta files for PPR, REL and REC : `data/inputs/PPR_DB.fa` `data/inputs/REL_DB.fa` `data/inputs/REC_DB.fa`
   
-**Outputs:**  
-- Clustering results: /data/3_summary_table_with_clusteringDATA
+
+**Outputs:**   
+*Example files are available in the `data/outputs` repository.*  
+
+- Summary table with metadata  (separator: `,`) : `data/outputs/Summary_table_2`
+
 
    
 ### 4️⃣ Boundaries and Integration Site Characterization
