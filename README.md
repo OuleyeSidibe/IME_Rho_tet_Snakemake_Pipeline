@@ -74,65 +74,70 @@ Before executing the workflow, please follow these guidelines:
 
 ---
 
+## 🚀 Pipeline Launch
 
+Follow these steps to execute the **IME_Rho_tet Snakemake pipeline**:
 
-## Pipeline launch
+### 1️⃣ Download RefSeq Genomic Data
 
-
-1. **Download RefSeq Genomic Data**
-   
-   Download amino acide translated files of Bacillota and actinomycetota phyla from Refseq database
+- Retrieve translated amino acid files of _Bacillota_ and _Actinomycetota_ from RefSeq.  
+- Example file:  Roseburia hominis GCF_000225345.1_ASM22534v1
  
-   - ex. Roseburia hominis GCF_000225345.1_ASM22534v1 file  :  https://ftp.ncbi.nlm.nih.gov/genomes/refseq/bacteria/all/GCF/000/225/345/GCF_000225345.1_ASM22534v1_translated_cds.faa
-   - input file ex : /data/Roseburia_hominis_GCF_000225345.1_ASM22534v1_translated_cds.fa
+   - refseq_path :  https://ftp.ncbi.nlm.nih.gov/genomes/refseq/bacteria/all/GCF/000/225/345/GCF_000225345.1_ASM22534v1_translated_cds.faa
+   - input file : /data/Roseburia_hominis_GCF_000225345.1_ASM22534v1_translated_cds.fa
+
      
+### 2️⃣ In Silico Search of IME_Rho_tet
+- **Snakefile:** `1_InSilico_IME_Rho_tet.smk`
+- config : configs/1_config.yaml
 
-2. **In silico search of IME_Rho_tet**
+**Inputs:**  
+- Query file: `data/Query_TET_REL_REC.fa`  
+- Translated protein files  
+- GenBank file:  Download genbank file to extract metadata
+  ex : https://ftp.ncbi.nlm.nih.gov/genomes/refseq/bacteria/all/GCF/000/225/345/GCF_000225345.1_ASM22534v1_genomic.gbff.faa
+  
+ **Outputs:** 
+- blastp result table ex : data/2_Roseburia_hominis_GCF_000225345.1_ASM22534v1_blastp.out
+- Summary table with metaData ex : data/2_Summary_table_Roseburia_hominis ; sep=','
+
+  
+### 3️⃣ Protein Clustering
+- **Snakefile:** `2_clustering.smk`  
+- config file : configs/2_config.yaml
+  
+**Outputs:**  
+- Clustering results: /data/3_summary_table_with_clusteringDATA
+
    
-   snk file : 1_InSilico_IME_Rho_tet.smk
-   config : configs/1_config.yaml #adapt reposotories
+### 4️⃣ Boundaries and Integration Site Characterization
 
-    - input :
-           . query file : data/Query_TET_REL_REC.fa
-           . Translated files
-           . Download genbank file to extract metadata : https://ftp.ncbi.nlm.nih.gov/genomes/refseq/bacteria/all/GCF/000/225/345/GCF_000225345.1_ASM22534v1_genomic.gbff.faa 
-    - output :
-           . blastp result table ex : data/2_Roseburia_hominis_GCF_000225345.1_ASM22534v1_blastp.out
-           . Summary table with metaData ex : data/2_Summary_table_Roseburia_hominis ; sep=','
-               
-      
-3. **Protein clustering**
+#### a) TIR Motif Detection
+- Scripts:  
+1. `1_run_fimo.sh` – Search TIR motifs using `/scripts/FIMO/TIR_model.meme`  
+2. `2_parse_TIRs.py` – Extract TIRs for IME_Rho_tet and RPP(tet) groups  
+3. `3_add_TIRs.py` – Add TIRs to summary table  
 
-   snk file : 2_clustering.smk
-   config file : configs/2_config.yaml
-    - output : /data/3_summary_table_with_clusteringDATA
+- Output: Summary table with TIRsequence and coordinate ex : /data/4_summary_table_with_TIR
 
-   
-4. **Boundaries and integration site characterization**
+#### b) Integration Site Analysis
+- Scripts:  
+1. `1_integrationSite_IME_Rho_tet.py` – Extract 150 bp flanking TIRs  
+2. `2_clustering_blastn.sh` + `blastn_analyse.py` – Cluster sequences & search homologs in nr  
+3. `3_Refseq_GB_remote.py` – Annotate homologous sequences using RefSeq/GenBank  
 
-   1 - TIR motif search in genomes
-   
-      . scripts : . 1_run_fimo.sh first to search TIR motif of model file  (/scripts/FIMO/TIR_model.meme)
-                  . 2_parse_TIRs.py for IME_Rho_tet and RPP(tet) groupes to extract TIR which match with RPP positions and orientations in 6kb around
-                  . 3_add_TIRs.py then add TIRs data to summary table
-   
-      . output : Summary table with TIRsequence and coordinate ex : /data/4_summary_table_with_TIR
+### 5️⃣ Sources Analysis
+- Metadata about sequence sources is extracted and categorized using bash scripts.
 
-   2 - Intégration site
 
-      . scripts : - 1_integrationSite_IME_Rho_tet.py : first extact 150 pb of sequences flanking TIRS to reconstruct genetic sequence carrying intégration site
-                  - 2_clustering_blastn.sh and blastn_analyse.py: sequences clustering then blast again nr database for homologie search
-                  - 3_Refseq_GB_remote.py : Homologous sequences annotated using RefSeq/GenBank 
+### 6️⃣ Statistical Tests
+- Chi-square and other statistical tests are performed using R scripts.
 
-5. **Sources analysis** : 
 
-   - metaData of sources are collected and categories using bash script
-   
-7. **Statistical tests** :
+✅ **Tip:** Always run the pipeline in the designated **working directory** and ensure all paths in the configuration files reflect your environment.
 
-    - Chi-Square test are performed using R
-      
 ---
+
 
 
 ## 📬 Contact
