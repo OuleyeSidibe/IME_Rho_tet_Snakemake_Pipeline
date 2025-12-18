@@ -124,7 +124,14 @@ Before executing the workflow, please follow these guidelines:
                   - 2_clustering_blastn.sh and blastn_analyse.py: sequences clustering then blast again nr database for homologie search
                   - 3_Refseq_GB_remote.py : Homologous sequences annotated using RefSeq/GenBank 
 
+5. **Sources analysis** : 
 
+   - metaData of sources are collected and categories using bash script
+   
+7. **Statistical tests** :
+
+    - Chi-Square test are performed using R
+      
 ---
 
 
