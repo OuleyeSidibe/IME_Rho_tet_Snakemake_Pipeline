@@ -91,7 +91,7 @@ Exemple : Refseq accession (GCF*) annotations of tree strains
 - Retrieve translated amino acid and genbank annotation files of _Bacillota_ and _Actinomycetota_ from RefSeq.  
 - Refseq annotation files exemple:  
  
-   - path to download refseq annotation of translated CDS file (_translated_cds.faa.gz) and gengank annotation file (_genomic_gbff.gz) :
+   - path to download refseq annotation of translated CDS file (_translated_cds.faa.gz) - gengank annotation file (_genomic_gbff.gz) - genomic DNA annotation (_genomic_fna.gz) :
      
      https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/225/345/GCF_000225345.1_ASM22534v1/
      
@@ -103,7 +103,7 @@ Exemple : Refseq accession (GCF*) annotations of tree strains
 
 
 
-- Snakemake documentation : snakemake.readthedocs.io/en/stable/
+- Snakemake documentation : [snakemake.readthedocs.io/en/stable/](https://snakemake.readthedocs.io/en/stable/)
      
 
      
@@ -120,10 +120,10 @@ Exemple : Refseq accession (GCF*) annotations of tree strains
 *Example files are available in the `data/inputs` repository.*
 
 - Query file: `data/query_p.fa`   
-- RefSeq downloaded files : `data/inputs/GCF_000225345.1_ASM22534v1_translated_cds.fa` and `data/inputs/GCF_000225345.1_ASM22534v1_genomic_gbff`
+- RefSeq downloaded files : `data/inputs/GCF_000225345.1_ASM22534v1_translated_cds.fa` and `data/inputs/GCF_000225345.1_ASM22534v1_genomic.gbff`
 - Query files for truncated sequences :  `data/query_t.fa` 
 - Reference files for PPR (r1), relaxase(r2), and recombinase(r3) :  `data/inputs/r1` `data/inputs/r2` `data/inputs/r3`
-- Report file for downloaded RefSeq data`data/inputs/report_file_refseq`
+- Report file for downloaded RefSeq data`data/inputs/report_file_refseq` (separator: `\t`)
 - NCBI taxonomie file : `data/rankedlineage_head.dmp`
 - NCBI taxonomie reworked for _Bacillota_ and _Actinomycetota_ : `data/inputs/taxonomie_bacillota_actinomycetota`
   
@@ -159,15 +159,27 @@ Exemple : Refseq accession (GCF*) annotations of tree strains
    
 ### 4️⃣ Boundaries and Integration Site Characterization
 
-#### a) TIR Motif Detection
+1. TIR Motif Detection
+
+**Inputs:**  
+- TIR motif file : `scripts/FIMO/TIR_model.meme`
+  
 - Scripts:  
 1. `1_run_fimo.sh` – Search TIR motifs using `/scripts/FIMO/TIR_model.meme`  
 2. `2_parse_TIRs.py` – Extract TIRs for IME_Rho_tet and RPP(tet) groups  
-3. `3_add_TIRs.py` – Add TIRs to summary table  
+3. `3_add_TIRs.py` – Add TIRs to summary table
 
-- Output: Summary table with TIRsequence and coordinate ex : /data/4_summary_table_with_TIR
+   
+**Outputs:**
+*Example files are available in the `data/outputs` repository.*
+- Summary table with detected TIR motif and their coordinate : `data/outputs/Summary_table_3`
 
-#### b) Integration Site Analysis
+
+
+2. Integration Site Analysis
+   
+**Inputs:** 
+-RefSeq downloaded files : `data/inputs/GCF_000225345.1_ASM22534v1_genomic.fna`
 - Scripts:  
 1. `1_integrationSite_IME_Rho_tet.py` – Extract 150 bp flanking TIRs  
 2. `2_clustering_blastn.sh` + `blastn_analyse.py` – Cluster sequences & search homologs in nr  
