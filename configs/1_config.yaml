@@ -1,11 +1,11 @@
 # ===== INPUT =====
-#  RefSeq / GenBank database
+#  RefSeq / GenBank FTP path
 
 inputdir: https://ftp.ncbi.nlm.nih.gov/genomes/all/
 
 # ===== INPUT aND OUTPUT DIRECTORIES =====
 outputdir:
-  migale_data: /path/of/download/data/from/refseq/
+  migale_data: input directory with refseq annotation download of translated cds
   import_Data_1: /path/to/output/import_data
   blastp_Groups_2: /path/to/output/blastp_result
 
