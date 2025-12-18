@@ -49,4 +49,4 @@ ref_file:
 
 # ===== REPORTS / METADATA =====
 report_1: report file containing the number of annotations in RefSeq translated CDS files for each species
-taxonomie_1: NCBI taxonomy file for Bacillota and Actinomycetota data (reworked)
+taxonomie_1: NCBI taxonomy file for only Bacillota and Actinomycetota data (reworked)
