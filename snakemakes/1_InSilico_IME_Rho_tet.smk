@@ -15,7 +15,7 @@ shell.prefix("source /usr/local/genome/Anaconda3/etc/profile.d/conda.sh;")
 
 
 # ## Configure yaml file
-configfile: "config.yaml"
+configfile: "1_config.yaml"
 
 
 
