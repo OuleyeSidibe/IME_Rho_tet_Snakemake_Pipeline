@@ -3,8 +3,8 @@
 
 # Working directories
 workdir: Snakemake working directory
-outputdir: output directory for clustering output files
-inputdir: input directory containing databases created in step 1
+outputdir: data for clustering step 
+inputdir: output directory containing files from step 1 (Snakemake)
 faa_dir: directory containing RefSeq downloaded files
 
 # Reference file
