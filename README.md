@@ -78,28 +78,49 @@ Before executing the workflow, please follow these guidelines:
 
 Follow these steps to execute the **IME_Rho_tet Snakemake pipeline**:
 
+Exemple : Refseq accession (GCF*) annotations of tree strains
+   - Roseburia hominis GCF_000225345.1_ASM22534v1
+   - Bifidobacterium longum YGMCC0020 GCF_033344655.1_ASM3334465v1
+   - Clostridioides_difficile GCF_036699395.1_ASM3669939v1
+
+
 ### 1️⃣ Download RefSeq Genomic Data
 
-- Retrieve translated amino acid files of _Bacillota_ and _Actinomycetota_ from RefSeq.  
-- Example file:  Roseburia hominis GCF_000225345.1_ASM22534v1
- 
-   - refseq_path :  https://ftp.ncbi.nlm.nih.gov/genomes/refseq/bacteria/all/GCF/000/225/345/GCF_000225345.1_ASM22534v1_translated_cds.faa
-   - input file : /data/Roseburia_hominis_GCF_000225345.1_ASM22534v1_translated_cds.fa
 
+- Retrieve translated amino acid and genbank annotation files of _Bacillota_ and _Actinomycetota_ from RefSeq.  
+- Refseq annotation files exemple:  
+ 
+   - path to download refseq annotation of translated CDS file (_translated_cds.faa.gz) and gengank annotation file (_genomic_gbff.gz) :
+     https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/225/345/GCF_000225345.1_ASM22534v1/
+     https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/033/344/655/GCF_033344655.1_ASM3334465v1/
+     https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/036/699/395/GCF_036699395.1_ASM3669939v1/
+     
+   - Use "wget" command to download files  : https://doc.ubuntu-fr.org/wget 
+     
+     
      
 ### 2️⃣ In Silico Search of IME_Rho_tet
 - **Snakefile:** `1_InSilico_IME_Rho_tet.smk`
-- config : configs/1_config.yaml
+   - config : configs/1_config.yaml
+   - scripts :  available in scripts repository
 
 **Inputs:**  
+*Example files are available in the `data/inputs` repository.*
+
 - Query file: `data/Query_TET_REL_REC.fa`  
-- Translated protein files  
-- GenBank file:  Download genbank file to extract metadata
-  ex : https://ftp.ncbi.nlm.nih.gov/genomes/refseq/bacteria/all/GCF/000/225/345/GCF_000225345.1_ASM22534v1_genomic.gbff.faa
-  
- **Outputs:** 
-- blastp result table ex : data/2_Roseburia_hominis_GCF_000225345.1_ASM22534v1_blastp.out
-- Summary table with metaData ex : data/2_Summary_table_Roseburia_hominis ; sep=','
+- Report file: text file summarizing BLASTp results and group distribution  
+- RefSeq downloaded files  
+- Query files for truncated sequences  
+- Reference files for PPR, relaxase, and recombinase  
+
+---
+
+**Outputs:**   
+*Example files are available in the `data/outputs` repository.*
+
+- BLASTp result tables after analysis and filtering  
+- Summary table with metadata  (separator: `,`)
+
 
   
 ### 3️⃣ Protein Clustering
