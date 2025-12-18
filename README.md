@@ -125,8 +125,8 @@ Exemple : Refseq accession (GCF*) annotations of tree strains
 **Outputs:**   
 *Example files are available in the `data/outputs` repository.*
 
-- BLASTp result tables after analysis and filtering :  
-- Summary table with metadata  (separator: `,`)
+- BLASTp result tables after analysis and filtering : `data/outputs/Summary_table_1`   
+- Summary table with metadata  (separator: `,`) : `data/outputs/Summary_table_2`
 
 
   
