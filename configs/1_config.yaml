@@ -6,11 +6,11 @@ inputdir: input directory with GenBank annotation files
 # ===== INPUT AND OUTPUT DIRECTORIES =====
 outputdir:
   migale_data: input directory with RefSeq annotation download files of translated CDS
-  import_Data_1: output directory with report file for downloaded RefSeq data
+  import_Data_1: input directory with report file for downloaded RefSeq data
   blastp_Groups_2: output directory for BLASTp results
 
 # Output directory for protein clustering
-outputdir2: output directory of PPR REL and REC database created for the clustering step
+outputdir2: output directory of PPR REL and REC database created for the clustering step 2
 
 # Snakemake working directory
 workdir: Snakemake working directory
