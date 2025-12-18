@@ -92,14 +92,17 @@ Exemple : Refseq accession (GCF*) annotations of tree strains
 - Refseq annotation files exemple:  
  
    - path to download refseq annotation of translated CDS file (_translated_cds.faa.gz) and gengank annotation file (_genomic_gbff.gz) :
-     
      https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/225/345/GCF_000225345.1_ASM22534v1/
      
      https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/033/344/655/GCF_033344655.1_ASM3334465v1/
      
      https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/036/699/395/GCF_036699395.1_ASM3669939v1/
      
-   - Use "wget" command to download files  : https://doc.ubuntu-fr.org/wget 
+   - Use "wget" command to download files  : https://doc.ubuntu-fr.org/wget
+
+
+
+- Snakemake documentation : snakemake.readthedocs.io/en/stable/
      
      
      
@@ -111,18 +114,18 @@ Exemple : Refseq accession (GCF*) annotations of tree strains
 **Inputs:**  
 *Example files are available in the `data/inputs` repository.*
 
-- Query file: `data/Query_TET_REL_REC.fa`  
-- Report file: text file summarizing BLASTp results and group distribution  
-- RefSeq downloaded files  
-- Query files for truncated sequences  
-- Reference files for PPR, relaxase, and recombinase  
+- Query file: `data/query_p.fa`  
+- Report file: new text file summarizing BLASTp results and group distribution  
+- RefSeq downloaded files : `data/inputs/GCF_000225345.1_ASM22534v1_translated_cds.fa` and `data/inputs/GCF_000225345.1_ASM22534v1_genomic_gbff`
+- Query files for truncated sequences :  `data/query_t.fa` 
+- Reference files for PPR, relaxase, and recombinase : r1 'Resfinfer database for PPR reference', r2 'relaxase reference', r3 'recombinase reference' 
 
 
 **Outputs:**   
 *Example files are available in the `data/outputs` repository.*
 
 - BLASTp result tables after analysis and filtering  
-- Summary table with with IME_Rho_tet in silico search  (separator: `,`)
+- Summary table with metadata  (separator: `,`)
 
 
   
